@@ -19,6 +19,7 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
         Scores_Jeux (list[GestionScores.Scores]) : Scores des joueurs pour chaque mini jeux 
         mode_jeu (int) : mode de jeu pour lequel le jeu sera lancé (1 pour joueur contre joueur, 2 pour joueur contre ordinateur, 3 pour ordinateur contre ordinateur, 0 pour laisser le joueur choisir)
     """
+
     nb_allumettes : int
     nb_allumettes = nb_allumettes_depart
     choix : str
@@ -79,8 +80,8 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
 
 def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
     """
-    Fonction permettant à l'ordinateur de jouer et de choisir un nombre d'allumettes à retirer. Ce choix ce fait en fonction du niveau de l'ordinateur.
-    Les niveaux 2 et 3 sont identique.
+    Fonction permettant à l'ordinateur de jouer et de choisir un nombre d'allumettes à retirer. Ce choix se fait en fonction du niveau de l'ordinateur.
+    Les niveaux 2 et 3 sont identiques.
 
     Entrée :
         nb_allumettes (int) : nombre d'allumettes restant pour la partie en cours
@@ -150,6 +151,12 @@ def choix_menu_allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : i
     
     while choix!=4:
         clear_terminal()
+            
+        print(r"""   __    __    __    __  __  __  __  ____  ____  ____  ____  ___ 
+  /__\  (  )  (  )  (  )(  )(  \/  )( ___)(_  _)(_  _)( ___)/ __)
+ /(__)\  )(__  )(__  )(__)(  )    (  )__)   )(    )(   )__) \__ \
+(__)(__)(____)(____)(______)(_/\/\_)(____) (__)  (__) (____)(___/
+""")
         afficher_menu_minijeux()
         choix = saisir_entier_borne("Veuillez saisir votre choix : ",1,4,"Choix indisponible")
         clear_terminal()

@@ -37,6 +37,10 @@ def choix_menu_morpion(joueur1 :str, joueur2 :str, Scores_Jeux : list[GestionSco
     symbole_j2 = "X"
 
     while choix != 4:
+        print(r""" __  __  _____  ____  ____  ____  _____  _  _ 
+(  \/  )(  _  )(  _ \(  _ \(_  _)(  _  )( \( )
+ )    (  )(_)(  )   / )___/ _)(_  )(_)(  )  ( 
+(_/\/\_)(_____)(_)\_)(__)  (____)(_____)(_)\_)""")
         afficher_menu_minijeux()
         choix = int(input("Veuillez saisir votre choix : "))
         clear_terminal()

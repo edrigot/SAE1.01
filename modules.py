@@ -22,12 +22,17 @@ def saisir_entier_borne(message : str, borneinf : int, bornesup : int, message_e
 
 def afficher_menu_minijeux():
     """
-    Fonction permettant d'afficher le sous-menu des mini-jeux
+    Procédure permettant d'afficher le sous-menu des mini-jeux
+    entrée: rien
+    sortie: rien
     """
-    print("1 -- Jouer")
-    print("2 -- Règles du jeu")
-    print("3 -- Paramètres")
-    print("4 -- Menu principal")
+    print("----------------------")
+    print("|1 -- Jouer          |")
+    print("|2 -- Règles du jeu  |")
+    print("|3 -- Paramètres     |")
+    print("|4 -- Menu principal |")
+    print("----------------------")
+
 
 def remplissage_tab(tab : list[list[str]], nb_colonnes : int, nb_lignes : int) -> list[list[str]]:
     """
@@ -72,7 +77,7 @@ def affichage_tab(tab : list[list[str]]):
 
 def reste_place(tab : list[list[str]]) -> bool:
     """
-    Fonction qui permet de savoir si il reste au moins une case de libre dans un tableau dèjà rempli pour une utilisation pour le morpion ou le puissance 4
+    Fonction qui permet de savoir s'il reste au moins une case de libre dans un tableau dèjà rempli pour une utilisation pour le morpion ou le puissance 4
     Une est libre lorsqu'elle contient la chaine de caractere : "-"
 
     Entrée :
@@ -112,7 +117,9 @@ def case_vide(tab : list[list[str]], colonne : int, ligne : int) -> bool:
 
 def clear_terminal():
     """
-    Fonction qu permet de determiner le système d'exploitation et d'effectuer la commande approprie pour effacer le terminal
+    Procédure qu permet de determiner le système d'exploitation et d'effectuer la commande approprie pour effacer le terminal
+    entrée: rien*
+    sortie: rien
     """
     if os.name=='nt':
         os.system("cls")
@@ -121,19 +128,33 @@ def clear_terminal():
 
 def menu_bot_joueur() -> int:
     choix : int
-    print("1 -- Joueur 1 contre joueur 2")
-    print("2 -- Joueur 1 contre ordinateur")
-    print("3 -- Ordinateur contre ordinateur")
+    print(r""" __  __  _____  ____  ____ 
+(  \/  )(  _  )(  _ \( ___)
+ )    (  )(_)(  )(_) ))__) 
+(_/\/\_)(_____)(____/(____)""")
+    print("-------------------------------------")
+    print("|1 -- Joueur 1 contre joueur 2      |")
+    print("|2 -- Joueur 1 contre ordinateur    |")
+    print("|3 -- Ordinateur contre ordinateur  |")
+    print("-------------------------------------")
+
     choix = saisir_entier_borne("Entrez votre choix : ",1,3,"Erreur, choix indisponible")
     clear_terminal()
     return choix
 
 def menu_niveau_bot() -> int:
     choix : int
-    print("1 -- Facile")
-    print("2 -- Moyen")
-    print("3 -- Diffcile")
-    choix = saisir_entier_borne("Veuillez choisir la diffculté : ",1,3,"Erreur, choix indisponible")
+    print(r""" ____  ____  ____  ____  ____  ___  __  __  __   ____  ____ 
+(  _ \(_  _)( ___)( ___)(_  _)/ __)(  )(  )(  ) (_  _)( ___)
+ )(_) )_)(_  )__)  )__)  _)(_( (__  )(__)(  )(__  )(   )__) 
+(____/(____)(__)  (__)  (____)\___)(______)(____)(__) (____)""")
+    print("-----------------")
+    print("|1 -- Facile    |")
+    print("|2 -- Moyen     |")
+    print("|3 -- Difficile |")
+    print("-----------------")
+
+    choix = saisir_entier_borne("Veuillez choisir la difficulté : ",1,3,"Erreur, choix indisponible")
     clear_terminal()
     return choix
 

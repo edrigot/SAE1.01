@@ -442,6 +442,10 @@ def choix_menu_p4(joueur1 : str, joueur2 : str, Scores_Jeux : list[GestionScores
     
     while choix!=4:
         clear_terminal()
+        print(r""" ____  __  __  ____  ___  ___    __    _  _  ___  ____     __  
+(  _ \(  )(  )(_  _)/ __)/ __)  /__\  ( \( )/ __)( ___)   /. | 
+ )___/ )(__)(  _)(_ \__ \\__ \ /(__)\  )  (( (__  )__)   (_  _)
+(__)  (______)(____)(___/(___/(__)(__)(_)\_)\___)(____)    (_) """)
         afficher_menu_minijeux()
         choix = saisir_entier_borne("Veuillez saisir votre choix : ",1,4,"Choix indisponible")
         clear_terminal()

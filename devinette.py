@@ -31,6 +31,10 @@ def menudevinette(nbtour:int,joueur1:str,joueur2:str,Scores_Jeux : list[GestionS
     choix=0
     while (choix!=4):
         clear_terminal()
+        print(r""" ____  ____  _  _  ____  _  _  ____  ____  ____  ____  ___ 
+(  _ \( ___)( \/ )(_  _)( \( )( ___)(_  _)(_  _)( ___)/ __)
+ )(_) ))__)  \  /  _)(_  )  (  )__)   )(    )(   )__) \__ \
+(____/(____)  \/  (____)(_)\_)(____) (__)  (__) (____)(___/""")
         afficher_menu_minijeux()
         choix=saisir_entier_borne("Veuillez saisir votre choix : ",1,4,"Choix indisponible")
         clear_terminal()

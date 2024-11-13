@@ -9,17 +9,28 @@ from GestionScores import afficher_scores
 from GestionScores import lecture_Scores
 from GestionScores import sauvegarde_scores
 
+#choix présent sur le menu
+menu_options = {
+    1:'Changement de pseudo',
+    2:'Allumettes',
+    3:'Devinettes',
+    4:'Morpion',
+    5:'Puissance 4',
+    6:'Scores',
+    7:'Quitter'
+}
+
+
+#imprimer le menu
 def afficher_menu():
-    """
-    Fonction qui permet d'afficher les choix disponible depuis le menu principal du programme
-    """
-    print("1 : Changement de pseudo")
-    print("2 : Allumettes")
-    print("3 : Devinettes")
-    print("4 : Morpion")
-    print("5 : Puissance 4")
-    print("6 : Scores")
-    print("7 : Quitter")
+    print(r""" ____  __      __    _  _  ____  ____ 
+(  _ \(  )    /__\  ( \( )( ___)(_  _)
+ )___/ )(__  /(__)\  )  (  )__)   )(  
+(__)  (____)(__)(__)(_)\_)(____) (__) 
+""")
+    for key in menu_options.keys():
+        print (key, '--', menu_options[key] )
+
 
 def choix_pseudo(j1 : str, j2 : str) -> str: 
     """
