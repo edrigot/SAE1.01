@@ -36,6 +36,16 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
         joueur2 = "bot2"
 
     while nb_allumettes > 0:
+        print(f"Tour de {joueur1} fini")
+        for i in range (nb_allumettes):
+
+            print("\x1b[38;5;196m.")
+
+            print("\x1b[38;5;190m|")
+
+            print("\x1b[38;5;7m")
+        print(f"Il reste {nb_allumettes} allumettes")
+
         if mode_jeu == 1 or mode_jeu == 2:
             nb_allumettes = choix_allumettes(nb_allumettes, joueur1)
             gagnant = joueur1
@@ -47,8 +57,18 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
             nb_allumettes = choix_allumettes_bot(nb_allumettes,niveau_bot)
             perdant = "bot2"
             gagnant = "bot1"
-        clear_terminal()        
+        clear_terminal() 
+               
         print(f"Tour de {joueur1} fini")
+        for i in range (nb_allumettes):
+
+            print("\x1b[38;5;196m.")
+
+            print("\x1b[38;5;190m|")
+
+            print("\x1b[38;5;7m")
+        print(f"Il reste {nb_allumettes} allumettes")
+
         if nb_allumettes > 0:
             if mode_jeu == 1:
                 nb_allumettes = choix_allumettes(nb_allumettes, joueur1)
@@ -87,7 +107,7 @@ def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
         nb_allumettes (int) : nombre d'allumettes restant pour la partie en cours
         niveau (int) : niveau de l'ordinateur
     Sortie :
-        reste_allumettes (int) : ombre d'allumettes restant pour la partie en cours après avoir retirer le choix de l'ordinateur
+        reste_allumettes (int) : Nombre d'allumettes restant pour la partie en cours après avoir retirer le choix de l'ordinateur
     """
     choix : int
     reste_allumettes : int
