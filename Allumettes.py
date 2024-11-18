@@ -22,6 +22,7 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
 
     nb_allumettes : int
     nb_allumettes = nb_allumettes_depart
+    compteur_i:int
     choix : str
     perdant : str
     perdant = ''
@@ -36,14 +37,23 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
         joueur2 = "bot2"
 
     while nb_allumettes > 0:
+
+        clear_terminal() 
+
         print(f"Tour de {joueur1} fini")
-        for i in range (nb_allumettes):
+        
+        for compteur_j in range (nb_allumettes):
+            print("\x1b[38;5;196m.",end=" ")
+        print("")
 
-            print("\x1b[38;5;196m.")
-
-            print("\x1b[38;5;190m|")
-
-            print("\x1b[38;5;7m")
+        for compteur_j in range (nb_allumettes):
+            print("\x1b[38;5;190m|",end=" ")
+        print("")
+        
+        for compteur_j in range (nb_allumettes):
+            print("\x1b[38;5;7m",end=" ")
+        print("")
+            
         print(f"Il reste {nb_allumettes} allumettes")
 
         if mode_jeu == 1 or mode_jeu == 2:
@@ -57,16 +67,23 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
             nb_allumettes = choix_allumettes_bot(nb_allumettes,niveau_bot)
             perdant = "bot2"
             gagnant = "bot1"
+
         clear_terminal() 
-               
+
         print(f"Tour de {joueur1} fini")
-        for i in range (nb_allumettes):
+        
+        for compteur_j in range (nb_allumettes):
+            print("\x1b[38;5;196m.",end=" ")
+        print("")
 
-            print("\x1b[38;5;196m.")
-
-            print("\x1b[38;5;190m|")
-
-            print("\x1b[38;5;7m")
+        for compteur_j in range (nb_allumettes):
+            print("\x1b[38;5;190m|",end=" ")
+        print("")
+        
+        for compteur_j in range (nb_allumettes):
+            print("\x1b[38;5;7m",end=" ")
+        print("")
+            
         print(f"Il reste {nb_allumettes} allumettes")
 
         if nb_allumettes > 0:

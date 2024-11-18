@@ -142,28 +142,40 @@ def afficher_scores(Scores_Jeux : list[Scores]):
     """
 
     Scores_Jeux = tri_score(Scores_Jeux,"puissance4")
-    print("------ Puissance 4 ------")
+    print(r"""        ____  __  __  ____  ___  ___    __    _  _  ___  ____     __         
+ ___   (  _ \(  )(  )(_  _)/ __)/ __)  /__\  ( \( )/ __)( ___)   /. |    ___ 
+(___)   )___/ )(__)(  _)(_ \__ \\__ \ /(__)\  )  (( (__  )__)   (_  _)  (___)
+       (__)  (______)(____)(___/(___/(__)(__)(_)\_)\___)(____)    (_)        """)
     for i in range(0,len(Scores_Jeux[slice(5)])):
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].puissance4}")
     input("Appuyez sur entrée pour afficher la page suivante : ")
     clear_terminal()
 
     Scores_Jeux = tri_score(Scores_Jeux,"morpion")
-    print("------ Morpion ------")
+    print(r"""        __  __  _____  ____  ____  ____  _____  _  _        
+ ___   (  \/  )(  _  )(  _ \(  _ \(_  _)(  _  )( \( )   ___ 
+(___)   )    (  )(_)(  )   / )___/ _)(_  )(_)(  )  (   (___)
+       (_/\/\_)(_____)(_)\_)(__)  (____)(_____)(_)\_)       """)
     for i in range(0,len(Scores_Jeux[slice(5)])):
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].morpion}")
     input("Appuyez sur entrée pour afficher la page suivante : ")
     clear_terminal()
 
     Scores_Jeux = tri_score(Scores_Jeux,"devinette")
-    print("------ Devinettes ------")
+    print(r"""        ____  ____  _  _  ____  _  _  ____  ____  ____  ____        
+ ___   (  _ \( ___)( \/ )(_  _)( \( )( ___)(_  _)(_  _)( ___)   ___ 
+(___)   )(_) ))__)  \  /  _)(_  )  (  )__)   )(    )(   )__)   (___)
+       (____/(____)  \/  (____)(_)\_)(____) (__)  (__) (____)       """)
     for i in range(0,len(Scores_Jeux[slice(5)])):
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].devinette}")
     input("Appuyez sur entrée pour afficher la page suivante : ")
     clear_terminal()
 
     Scores_Jeux = tri_score(Scores_Jeux,"allumettes")
-    print("------ Allumettes ------")
+    print(r"""          __    __    __    __  __  __  __  ____  ____  ____  ____  ___        
+ ___     /__\  (  )  (  )  (  )(  )(  \/  )( ___)(_  _)(_  _)( ___)/ __)   ___ 
+(___)   /(__)\  )(__  )(__  )(__)(  )    (  )__)   )(    )(   )__) \__ \  (___)
+       (__)(__)(____)(____)(______)(_/\/\_)(____) (__)  (__) (____)(___/       """)
     for i in range(0,len(Scores_Jeux[slice(5)])):
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].allumettes}")
 
