@@ -342,6 +342,11 @@ def afficher_regles_p4():
     """
     Fonction qui affiche les règles du puissance 4
     """
+    print(r"""        ____  ____  ___  __    ____  ___        
+ ___   (  _ \( ___)/ __)(  )  ( ___)/ __)   ___ 
+(___)   )   / )__)( (_-. )(__  )__) \__ \  (___)
+       (_)\_)(____)\___/(____)(____)(___/       """)
+    
     print("Le but du jeu est d'aligner une suite de 4 pions de meme symbole sur une grille de 6*7")
     print("Tour à tour les joueurs placent un pion dans la colonne de leur choix, le pion coulisse alors jusqu'à la position la plus basse possible")
     print("Le vainqueur est le joueur qui realise le premier un alignement (horizontal, vertical, diagonal) d'au moins 4 pions")

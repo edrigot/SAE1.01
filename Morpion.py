@@ -15,6 +15,11 @@ def regle_morpion():
     """
     Fonction qui permet d'afficher les règles du jeu du morpion
     """
+    print(r"""        ____  ____  ___  __    ____  ___        
+ ___   (  _ \( ___)/ __)(  )  ( ___)/ __)   ___ 
+(___)   )   / )__)( (_-. )(__  )__) \__ \  (___)
+       (_)\_)(____)\___/(____)(____)(___/       """)
+    
     print("Chaque joueur pose sa marque à tour de rôle dans les cases d'une grille de 3*3.")
     print("Le premier qui aligne (verctial, horizontal, diagonal) 3 marques a gagné")
     input("Appuyez sur entrée pour retourner au menu : ")

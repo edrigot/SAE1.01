@@ -146,6 +146,11 @@ def afficher_regles_allumettes(nb_allumettes_depart : int):
     """
     Fonction qui permet d'afficher les règles du jeu des allumettes
     """
+    print(r"""        ____  ____  ___  __    ____  ___        
+ ___   (  _ \( ___)/ __)(  )  ( ___)/ __)   ___ 
+(___)   )   / )__)( (_-. )(__  )__) \__ \  (___)
+       (_)\_)(____)\___/(____)(____)(___/       """)
+    
     print(f"On dispose d'un tas de {nb_allumettes_depart} d'allumettes.")
     print("Chaque joueur à tour de rôle peut en prélever 1,2 ou 3.")
     print("Le perdant est celui qui prend la dernière allumette.")
@@ -214,6 +219,7 @@ def changement_settings_allumettes() -> int:
         nouvelle_valeur (int) : Le nouveau nombre d'allumettes de départ
     """
     nouvelle_valeur : int
+
     nouvelle_valeur = saisir_entier_borne("Entrez le nouveau nombre d'allumettes de départ (compris entre 0 et 50) : ",0,50,"Le nombre doit etre entre 0 et 50")
     clear_terminal()
     

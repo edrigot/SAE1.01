@@ -11,6 +11,10 @@ def afficher_regles_devinette():
     """
     Fonction qui permet d'afficher les règles du jeu des allumettes
     """
+    print(r"""        ____  ____  ___  __    ____  ___        
+ ___   (  _ \( ___)/ __)(  )  ( ___)/ __)   ___ 
+(___)   )   / )__)( (_-. )(__  )__) \__ \  (___)
+       (_)\_)(____)\___/(____)(____)(___/       """)
     print("Le joueur 1 choisi un nombre entre 1 et une limite à décider.")
     print("Le joueur 2 doir deviner ce nombre : à chacune de ses propositions, le joueur 1 répond 'trop petit','trop grand' ou 'c'est gagné'")
     input("Appuyez sur entrée pour retourner au menu : ")
