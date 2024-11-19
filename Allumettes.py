@@ -210,10 +210,14 @@ def choix_menu_allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : i
 def changement_settings_allumettes() -> int:
     """
     Fonction qui permet de changer le nombre d'alllumettes de départ d'une partie du jeu des allumettes
-
+    Entrée :   rien
     Sortie :
         nouvelle_valeur (int) : Le nouveau nombre d'allumettes de départ
     """
+    print(r"""        ____   __    ____    __    __  __  ____  ____  ____  ____  ___        
+ ___   (  _ \ /__\  (  _ \  /__\  (  \/  )( ___)(_  _)(  _ \( ___)/ __)   ___ 
+(___)   )___//(__)\  )   / /(__)\  )    (  )__)   )(   )   / )__) \__ \  (___)
+       (__) (__)(__)(_)\_)(__)(__)(_/\/\_)(____) (__) (_)\_)(____)(___/       """)
     nouvelle_valeur : int
 
     nouvelle_valeur = saisir_entier_borne("Entrez le nouveau nombre d'allumettes de départ (compris entre 0 et 50) : ",0,50,"Le nombre doit etre entre 0 et 50")

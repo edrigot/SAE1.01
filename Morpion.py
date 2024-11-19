@@ -57,6 +57,11 @@ def choix_menu_morpion(joueur1 :str, joueur2 :str, Scores_Jeux : list[GestionSco
         elif choix == 2:
             regle_morpion()
         elif choix == 3:
+            print(r"""        ____   __    ____    __    __  __  ____  ____  ____  ____  ___        
+ ___   (  _ \ /__\  (  _ \  /__\  (  \/  )( ___)(_  _)(  _ \( ___)/ __)   ___ 
+(___)   )___//(__)\  )   / /(__)\  )    (  )__)   )(   )   / )__) \__ \  (___)
+       (__) (__)(__)(_)\_)(__)(__)(_/\/\_)(____) (__) (_)\_)(____)(___/       """)
+                
             symbole_j1 = input(f"{joueur1}, entrez votre nouveau symbole : ")
             symbole_j2 = input(f"{joueur2}, entrez votre nouveau symbole : ")
 

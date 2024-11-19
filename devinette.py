@@ -47,6 +47,11 @@ def menudevinette(nbtour:int,joueur1:str,joueur2:str,Scores_Jeux : list[GestionS
         elif (choix==2):
             afficher_regles_devinette()
         elif (choix==3):
+            print(r"""        ____   __    ____    __    __  __  ____  ____  ____  ____  ___        
+ ___   (  _ \ /__\  (  _ \  /__\  (  \/  )( ___)(_  _)(  _ \( ___)/ __)   ___ 
+(___)   )___//(__)\  )   / /(__)\  )    (  )__)   )(   )   / )__) \__ \  (___)
+       (__) (__)(__)(_)\_)(__)(__)(_/\/\_)(____) (__) (_)\_)(____)(___/       """)
+                
             nbtour=int(input("choisissez le nombre de tour maximum pour la partie : "))
 
 
