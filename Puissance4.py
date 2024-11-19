@@ -469,5 +469,6 @@ def choix_menu_p4(joueur1 : str, joueur2 : str, Scores_Jeux : list[GestionScores
                 print("Les symboles doivent être différents")
                 symbole_j1 = "O"
                 symbole_j2 = "X"
+                time.sleep(2)
 
     GestionScores.sauvegarde_scores(Scores_Jeux)
