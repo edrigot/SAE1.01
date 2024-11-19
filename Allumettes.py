@@ -22,7 +22,6 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
 
     nb_allumettes : int
     nb_allumettes = nb_allumettes_depart
-    compteur_i:int
     choix : str
     perdant : str
     perdant = ''
@@ -39,22 +38,8 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
     while nb_allumettes > 0:
 
         clear_terminal() 
-
-        print(f"Tour de {joueur1} fini")
         
-        for compteur_j in range (nb_allumettes):
-            print("\x1b[38;5;196m.",end=" ")
-        print("")
-
-        for compteur_j in range (nb_allumettes):
-            print("\x1b[38;5;190m|",end=" ")
-        print("")
-        
-        for compteur_j in range (nb_allumettes):
-            print("\x1b[38;5;7m",end=" ")
-        print("")
-            
-        print(f"Il reste {nb_allumettes} allumettes")
+        afficher_allumettes(nb_allumettes)
 
         if mode_jeu == 1 or mode_jeu == 2:
             nb_allumettes = choix_allumettes(nb_allumettes, joueur1)
@@ -69,22 +54,8 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
             gagnant = "bot1"
 
         clear_terminal() 
-
-        print(f"Tour de {joueur1} fini")
         
-        for compteur_j in range (nb_allumettes):
-            print("\x1b[38;5;196m.",end=" ")
-        print("")
-
-        for compteur_j in range (nb_allumettes):
-            print("\x1b[38;5;190m|",end=" ")
-        print("")
-        
-        for compteur_j in range (nb_allumettes):
-            print("\x1b[38;5;7m",end=" ")
-        print("")
-            
-        print(f"Il reste {nb_allumettes} allumettes")
+        afficher_allumettes(nb_allumettes)
 
         if nb_allumettes > 0:
             if mode_jeu == 1:
@@ -131,11 +102,16 @@ def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
     reste_allumettes = nb_allumettes
     if niveau == 1:
         choix = random.randint(1,3)
+        while choix > reste_allumettes:
+            choix = random.randint(1,3)
     else:
         if reste_allumettes > reste_allumettes / 2:
             choix = random.randint(2,3)
+
         else:
             choix = random.randint(1,2)
+
+    
     reste_allumettes = reste_allumettes - choix
     return reste_allumettes
 
@@ -158,6 +134,10 @@ def choix_allumettes(nb_allumettes : int, joueur : str) -> int:
     
     choix = saisir_entier_borne(f"{joueur}, entrez le nombre d'allumettes : ",1,3,"Veuillez choisir un nombre compris entre 1 et 3")
 
+    while choix > reste_allumettes:
+        print("Vous ne pouvez pas prendre plus d'allumettes qu'il n'en reste")
+        choix = saisir_entier_borne(f"{joueur}, entrez le nombre d'allumettes : ",1,3,"Veuillez choisir un nombre compris entre 1 et 3")
+
     reste_allumettes = reste_allumettes - choix
 
     return reste_allumettes
@@ -170,6 +150,26 @@ def afficher_regles_allumettes(nb_allumettes_depart : int):
     print("Chaque joueur à tour de rôle peut en prélever 1,2 ou 3.")
     print("Le perdant est celui qui prend la dernière allumette.")
     input("Appuyez sur entrée pour retourner au menu : ")
+
+def afficher_allumettes(nb_allumettes : int):
+    """
+    procédure qui permet dd'afficher le nombre d'allumettes restantes
+    """
+    compteur_j:int
+
+    for compteur_j in range (nb_allumettes):
+        print("\x1b[38;5;196m.",end=" ")
+    print("")
+
+    for compteur_j in range (nb_allumettes):
+        print("\x1b[38;5;190m|",end=" ")
+    print("")
+    
+    for compteur_j in range (nb_allumettes):
+        print("\x1b[38;5;7m",end=" ")
+    print("")
+        
+    print(f"Il reste {nb_allumettes} allumettes")
 
 def choix_menu_allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_Jeux : list[GestionScores.Scores]):
     """

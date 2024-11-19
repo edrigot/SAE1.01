@@ -20,7 +20,6 @@ menu_options = {
     7:'Quitter'
 }
 
-
 #imprimer le menu
 def afficher_menu():
     print(r""" ____  __      __    _  _  ____  ____ 
