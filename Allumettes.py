@@ -20,71 +20,65 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
         mode_jeu (int) : mode de jeu pour lequel le jeu sera lancé (1 pour joueur contre joueur, 2 pour joueur contre ordinateur, 3 pour ordinateur contre ordinateur, 0 pour laisser le joueur choisir)
     """
 
-    nb_allumettes : int
     nb_allumettes = nb_allumettes_depart
-    choix : str
-    perdant : str
+    choix = ''
     perdant = ''
-    gagnant : str
     gagnant = ''
-    niveau_bot : int
     niveau_bot = 1
+
     if mode_jeu == 0:
         mode_jeu = menu_bot_joueur()
     if mode_jeu != 1:
         niveau_bot = menu_niveau_bot()
         joueur2 = "bot2"
 
+    current_player = joueur1
+
     while nb_allumettes > 0:
-
-        clear_terminal() 
-        
+        clear_terminal()
         afficher_allumettes(nb_allumettes)
 
-        if mode_jeu == 1 or mode_jeu == 2:
-            nb_allumettes = choix_allumettes(nb_allumettes, joueur1)
-            gagnant = joueur1
-            if mode_jeu == 2:
-                perdant = "bot2"
-            else: 
-                perdant = joueur2
-        else:
-            nb_allumettes = choix_allumettes_bot(nb_allumettes,niveau_bot)
-            perdant = "bot2"
-            gagnant = "bot1"
-
-        clear_terminal() 
-        
-        afficher_allumettes(nb_allumettes)
-
-        if nb_allumettes > 0:
-            if mode_jeu == 1:
-                nb_allumettes = choix_allumettes(nb_allumettes, joueur1)
-                gagnant = joueur2
-                perdant = joueur1
+        if mode_jeu == 1:
+            nb_allumettes = choix_allumettes(nb_allumettes, current_player)
+            if current_player == joueur1:
+                current_player = joueur2
             else:
-                nb_allumettes = choix_allumettes_bot(nb_allumettes,niveau_bot)
-                gagnant = "bot2"
-                if mode_jeu == 2:
-                    perdant = joueur1
-                else:
-                    perdant = "bot1"
-            clear_terminal()
-            print(f"Tour de {joueur2} fini")
+                current_player = joueur1
+        elif mode_jeu == 2:
+            if current_player == joueur1:
+                nb_allumettes = choix_allumettes(nb_allumettes, joueur1)
+                current_player = "bot2"
+            else:
+                nb_allumettes = choix_allumettes_bot(nb_allumettes, niveau_bot)
+                current_player = joueur1
+        else:
+            nb_allumettes = choix_allumettes_bot(nb_allumettes, niveau_bot)
+            if current_player == "bot1":
+                current_player = "bot2"
+            else:
+                current_player = "bot1"
 
+    if current_player == joueur1:
+        perdant = joueur1
+        gagnant = joueur2
+    else:
+        perdant = joueur2
+        gagnant = joueur1
+
+    clear_terminal()
     print(f"{perdant} a perdu, dommage")
     print(f"{gagnant} a gagné, bravo")
-    Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"allumettes",gagnant,1)
+    Scores_Jeux = GestionScores.ajout_score(Scores_Jeux, "allumettes", gagnant, 1)
     choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
-    while choix!="O" and choix!="N" and choix=="":
+    while choix not in ["O","o","n", "N"]:
         print("Veuillez choisir O ou N")
         choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
-    if choix=="O":
-        nb_allumettes = nb_allumettes_depart
+    if choix == "O" or "o":
         clear_terminal()
-        Allumettes(joueur1, joueur2, nb_allumettes_depart,Scores_Jeux,mode_jeu)
+        Allumettes(joueur1, joueur2, nb_allumettes_depart, Scores_Jeux, mode_jeu)
     else:
         clear_terminal()
+
 
 def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
     """
