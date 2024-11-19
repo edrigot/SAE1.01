@@ -59,11 +59,12 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
                 current_player = "bot1"
 
     if current_player == joueur1:
-        perdant = joueur1
-        gagnant = joueur2
-    else:
         perdant = joueur2
         gagnant = joueur1
+        
+    else:
+        perdant = joueur1
+        gagnant = joueur2        
 
     clear_terminal()
     print(f"{perdant} a perdu, dommage")
