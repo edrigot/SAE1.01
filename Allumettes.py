@@ -69,14 +69,15 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
     clear_terminal()
     print(f"{perdant} a perdu, dommage")
     print(f"{gagnant} a gagné, bravo")
-    Scores_Jeux = GestionScores.ajout_score(Scores_Jeux, "allumettes", gagnant, 1)
+    Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"allumettes",gagnant,1)
     choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
-    while choix not in ["O","o","n", "N"]:
+    while choix!="O" and choix!="N" and choix=="":
         print("Veuillez choisir O ou N")
         choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
-    if choix == "O" or "o":
+    if choix=="O":
+        nb_allumettes = nb_allumettes_depart
         clear_terminal()
-        Allumettes(joueur1, joueur2, nb_allumettes_depart, Scores_Jeux, mode_jeu)
+        Allumettes(joueur1, joueur2, nb_allumettes_depart,Scores_Jeux,mode_jeu)
     else:
         clear_terminal()
 
