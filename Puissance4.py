@@ -465,5 +465,9 @@ def choix_menu_p4(joueur1 : str, joueur2 : str, Scores_Jeux : list[GestionScores
        (__) (__)(__)(_)\_)(__)(__)(_/\/\_)(____) (__) (_)\_)(____)(___/       """)
             symbole_j1 = input(f"{joueur1}, entrez votre nouveau symbole : ")
             symbole_j2 = input(f"{joueur2}, entrez votre nouveau symbole : ")
+            if symbole_j1 == symbole_j2:
+                print("Les symboles doivent être différents")
+                symbole_j1 = "O"
+                symbole_j2 = "X"
 
     GestionScores.sauvegarde_scores(Scores_Jeux)
