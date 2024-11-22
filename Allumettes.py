@@ -3,7 +3,7 @@ from modules import saisir_entier_borne
 from modules import afficher_menu_minijeux
 from modules import clear_terminal
 from modules import menu_bot_joueur
-from modules import menu_niveau_bot
+from modules import menu_niveau_bot_allumettes
 import GestionScores
 
 def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_Jeux : list[GestionScores.Scores], mode_jeu : int):
@@ -29,7 +29,7 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
     if mode_jeu == 0:
         mode_jeu = menu_bot_joueur()
     if mode_jeu != 1:
-        niveau_bot = menu_niveau_bot()
+        niveau_bot = menu_niveau_bot_allumettes()
         joueur2 = "bot2"
 
     current_player = joueur1
@@ -86,7 +86,7 @@ def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
     """
     Fonction permettant à l'ordinateur de jouer et de choisir un nombre d'allumettes à retirer. Ce choix se fait en fonction du niveau de l'ordinateur.
     Chaque niveau d'ordinateur a une stratégie différente pour choisir le nombre d'allumettes à retirer.
-    Le niveau 1 est aléatoire, le niveau 2 est basé sur une stratégie simple et le niveau 3 est basé sur une stratégie plus complexe.
+    Le niveau 1 est aléatoire, le niveau 2 est basé sur une stratégie simple et le niveau 3 est basé sur une stratégie plus complexe, le niveau 4 est un niveau de difficulté supplémentaire.
 
     Entrée :
         nb_allumettes (int) : nombre d'allumettes restant pour la partie en cours
@@ -137,6 +137,18 @@ def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
                     choix = random.randint(2,3)
             else:
                 choix = random.randint(1,3)
+    if niveau == 4: #Niveau 4 est un niveau de difficulté supplémentaire
+        if (reste_allumettes) % 4 == 0:
+                choix = 3
+        elif (reste_allumettes) % 4 == 1:
+            if (reste_allumettes) == 1:
+                choix = 1
+            else:
+                choix = random.randint(1,3)
+        elif (reste_allumettes) % 4 == 2:
+            choix = 1
+        else:
+            choix = 2
     
     reste_allumettes = reste_allumettes - choix #On retire le nombre d'allumettes choisi par l'ordinateur
     return reste_allumettes

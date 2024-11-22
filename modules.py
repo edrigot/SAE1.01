@@ -158,3 +158,19 @@ def menu_niveau_bot() -> int:
     clear_terminal()
     return choix
 
+def menu_niveau_bot_allumettes() -> int:
+    choix : int
+    print(r""" ____  ____  ____  ____  ____  ___  __  __  __   ____  ____ 
+(  _ \(_  _)( ___)( ___)(_  _)/ __)(  )(  )(  ) (_  _)( ___)
+ )(_) )_)(_  )__)  )__)  _)(_( (__  )(__)(  )(__  )(   )__) 
+(____/(____)(__)  (__)  (____)\___)(______)(____)(__) (____)""")
+    print("-----------------")
+    print("|1 -- Facile     |")
+    print("|2 -- Moyen      |")
+    print("|3 -- Difficile  |")
+    print("|4 -- impossible |")
+    print("-----------------")
+
+    choix = saisir_entier_borne("Veuillez choisir la difficulté : ",1,4,"Erreur, choix indisponible")
+    clear_terminal()
+    return choix
