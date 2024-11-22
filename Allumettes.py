@@ -93,22 +93,51 @@ def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
     Sortie :
         reste_allumettes (int) : Nombre d'allumettes restant pour la partie en cours après avoir retirer le choix de l'ordinateur
     """
-    choix : int
+    choix : int 
     reste_allumettes : int
     reste_allumettes = nb_allumettes
+    hasard : float
+    hasard = random.random()
     if niveau == 1:
         choix = random.randint(1,3)
         while choix > reste_allumettes:
             choix = random.randint(1,3)
-    else:
+    if niveau == 2:
         if reste_allumettes > reste_allumettes / 2:
             choix = random.randint(2,3)
 
         else:
             choix = random.randint(1,2)
-
+    if niveau == 3:
+        if hasard < 1: #On simule un choix aléatoire pour savoir si l'ordinateur va jouer aléatoirement ou non
+            if (reste_allumettes) % 4 == 0:
+                choix = 3
+            elif (reste_allumettes) % 4 == 1:
+                if (reste_allumettes) == 1:
+                    choix = 1
+                else:
+                    choix = random.randint(1,3)
+            elif (reste_allumettes) % 4 == 2:
+                choix = 1
+            else:
+                choix = 2
+        else:
+            if (reste_allumettes) % 4 == 0:
+                choix = random.randint(1,2)
+            elif (reste_allumettes) % 4 == 1:
+                if (reste_allumettes) == 1:
+                    choix = 1
+                else:
+                    choix = random.randint(1,3)
+            elif (reste_allumettes) % 4 == 2:
+                if (reste_allumettes) == 2:
+                    choix = 2
+                else:
+                    choix = random.randint(2,3)
+            else:
+                choix = random.randint(1,3)
     
-    reste_allumettes = reste_allumettes - choix
+    reste_allumettes = reste_allumettes - choix #On retire le nombre d'allumettes choisi par l'ordinateur
     return reste_allumettes
 
 
