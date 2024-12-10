@@ -88,7 +88,7 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
         mode_jeu = menu_bot_joueur()
 
     clear_terminal()
-    if mode_jeu == 1:
+    if mode_jeu == 1: 
         limite=saisir_entier_borne(f"{joueur2}, choisissez la limite : ",1,1000,"La limite doit être comprise entre 1 et 1000")
         nombrechoisi=saisir_entier_borne(f"{joueur1},choisissez le nombre que vous souhaitez faire deviner, entre 1 et {limite}, : ",1,limite,"Le nombre n'est pas l'intervalle")
     elif mode_jeu == 2:

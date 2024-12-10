@@ -77,9 +77,12 @@ if __name__=="__main__":
 
     while choix_menu != 7:
         clear_terminal()
-        afficher_menu()
+        afficher_menu() #affiche le menu et permet de faire choisir une option à l'utilisateur
         choix_menu = saisir_entier_borne("Veuillez saisir votre choix : ",1,7,"Choix indisponible")
         clear_terminal()
+
+        #selon les choix de l'utilisateur, on lance le jeu/l'option correspondant
+
         if choix_menu == 1: 
             if choix_pseudo(joueur1, joueur2)==joueur1: #change le pseudo du joueur1
                 joueur1=input(f"{joueur1}, quel sera ton nouveau pseudo ? : ")

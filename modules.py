@@ -20,6 +20,8 @@ def saisir_entier_borne(message : str, borneinf : int, bornesup : int, message_e
         val = int(input(message))
     return val
 
+
+
 def afficher_menu_minijeux():
     """
     Procédure permettant d'afficher le sous-menu des mini-jeux
@@ -37,19 +39,19 @@ def afficher_menu_minijeux():
 def remplissage_tab(tab : list[list[str]], nb_colonnes : int, nb_lignes : int) -> list[list[str]]:
     """
     Fonction permettant de préparer un tableau pour les jeux du morpion et du puissance 4
-    Le tableau est de taille variabl et est sous la forme (pour un tableau de 3 lignes et 7 colones) :
+    Le tableau est de taille variable et est sous la forme (pour un tableau de 3 lignes et 7 colones) :
     |-|-|-|
     |-|-|-|
     |-|-|-|
     Entrée : 
-        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être déja déclaré et initalisé avant l'utilsation de la fonction
-        nb_colonnes (int) : Le nombre de colonnes du tableau (doit prefarablement etre un nombre impair sinon il ne sera pas "fermé")
+        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être deja declare et initalise avant l'utilisation de la fonction
+        nb_colonnes (int) : Le nombre de colonnes du tableau (doit prefarablement etre un nombre impair sinon il ne sera pas "ferme")
         nb_lignes (int) : Le nombre de lignes du tableau 
     Sortie:
         tab (list[lsit[str]]) : Tableau de chaines de caracteres qui est rempli pour etre utilisable dans les jeux du morpion et de puissance 4
     """
     
-    for i in range(0,nb_lignes):
+    for i in range(0,nb_lignes): #pour chaque ligne dans le tableau on ajoute une ligne de "-" et de "|" correspondant à la ligne du tableau
         ligne:list[str]
         ligne=[]
         for j in range(0,nb_colonnes):
@@ -63,17 +65,23 @@ def remplissage_tab(tab : list[list[str]], nb_colonnes : int, nb_lignes : int) -
         tab.append(ligne)
     return tab
 
+
+
 def affichage_tab(tab : list[list[str]]):
     """
-    Fonction qui permet d'afficher un tableau en revenant à la ligne à chaque fois que les colones d'une lignes sont affichés
+    Procedure qui permet d'afficher un tableau en revenant à la ligne à chaque fois que les colones d'une lignes sont affichés
 
     Entrée :
         tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être déja déclaré et initalisé avant l'utilsation de la fonction
+    Sortie :
+        rien
     """
     for i in range(0,len(tab)):
         for j in range(0,len(tab[i])):
             print(tab[i][j],end=" ")
         print()
+
+
 
 def reste_place(tab : list[list[str]]) -> bool:
     """
@@ -95,6 +103,8 @@ def reste_place(tab : list[list[str]]) -> bool:
                 return reste_place
     return reste_place
 
+
+
 def case_vide(tab : list[list[str]], colonne : int, ligne : int) -> bool:
     """
     Fonction permettant de savoir si une case est libre et donc si l'on peut jouer sur cette case
@@ -115,6 +125,8 @@ def case_vide(tab : list[list[str]], colonne : int, ligne : int) -> bool:
         est_vide = False
     return est_vide
 
+
+
 def clear_terminal():
     """
     Procédure qu permet de determiner le système d'exploitation et d'effectuer la commande approprie pour effacer le terminal
@@ -126,7 +138,14 @@ def clear_terminal():
     else:
         os.system("clear")
 
+
+
 def menu_bot_joueur() -> int:
+    """
+    Fonction qui permet d'afficher le menu pour choisir le mode de jeu pour les jeux contre l'ordinateur
+    Entrée : rien
+    Sortie : entier correspondant au choix de l'utilisateur
+    """
     choix : int
     print(r""" __  __  _____  ____  ____ 
 (  \/  )(  _  )(  _ \( ___)
@@ -142,7 +161,14 @@ def menu_bot_joueur() -> int:
     clear_terminal()
     return choix
 
+
+
 def menu_niveau_bot() -> int:
+    """
+    Fonction qui permet d'afficher le menu pour choisir le niveau de difficulté pour les jeux contre l'ordinateur
+    Entrée : rien
+    Sortie : entier correspondant au choix de l'utilisateur
+    """
     choix : int
     print(r""" ____  ____  ____  ____  ____  ___  __  __  __   ____  ____ 
 (  _ \(_  _)( ___)( ___)(_  _)/ __)(  )(  )(  ) (_  _)( ___)
@@ -158,7 +184,14 @@ def menu_niveau_bot() -> int:
     clear_terminal()
     return choix
 
+
+
 def menu_niveau_bot_allumettes() -> int:
+    """
+    Fonction qui permet d'afficher le menu pour choisir le niveau de difficulté pour le jeu des allumettes contre l'ordinateur
+    Entrée : rien
+    Sortie : entier correspondant au choix de l'utilisateur
+    """
     choix : int
     print(r""" ____  ____  ____  ____  ____  ___  __  __  __   ____  ____ 
 (  _ \(_  _)( ___)( ___)(_  _)/ __)(  )(  )(  ) (_  _)( ___)

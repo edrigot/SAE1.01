@@ -21,7 +21,7 @@ def lecture_Scores(Scores_Jeux : list[Scores]) -> list[Scores]:
     fichier : BinaryIO
     fin : bool
     fin = False
-    fichier = open("scores.dat","rb")
+    fichier = open("scores.dat","rb") #on ouvre le fichier en mode lecture binaire
     while not fin:
         try:
             Scores_Jeux.append(pickle.load(fichier))
@@ -36,11 +36,13 @@ def sauvegarde_scores(Scores_Jeux : list[Scores]):
 
     Entrée:
         Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
+    Sortie : 
+        rien
     """
     fichier : BinaryIO
-    fichier = open("scores.dat","wb")
-    for i in range(0,len(Scores_Jeux)):
-        pickle.dump(Scores_Jeux[i],fichier)
+    fichier = open("scores.dat","wb") #on ouvre le fichier en mode écriture binaire
+    for i in range(0,len(Scores_Jeux)): #on parcourt le tableau des scores pour le sauvegarder
+        pickle.dump(Scores_Jeux[i],fichier) #on sauvegarde chaque objet dans le fichier
     fichier.close()
 
 def recherche_indice_joueur(joueur : str, Scores_Jeux : list[Scores]) -> int:
@@ -53,10 +55,10 @@ def recherche_indice_joueur(joueur : str, Scores_Jeux : list[Scores]) -> int:
     Sortie : 
         int : la position du joueur ou -1 s'il n'existe pas
     """
-    for i in range(0,len(Scores_Jeux)):
+    for i in range(0,len(Scores_Jeux)): #on parcourt le tableau des scores dans le but de trouver le joueur
         if Scores_Jeux[i].nom==joueur:
-            return i
-    return -1
+            return i #on retourne l'indice du joueur s'il est trouvé
+    return -1 #on retourne -1 si le joueur n'est pas trouvé
 
 def ajout_joueur(pseudo : str) -> Scores:
     """
@@ -89,14 +91,16 @@ def ajout_score(Scores_Jeux : list[Scores], mini_jeu : str, joueur : str, score 
     Sortie :
         Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
     """
-    fichier : BinaryIO
-    fichier = open("scores.dat","wb")
+    fichier : BinaryIO 
+    fichier = open("scores.dat","wb") #on ouvre le fichier en mode écriture binaire
     indice_joueur : int
-    indice_joueur = recherche_indice_joueur(joueur,Scores_Jeux)
+    indice_joueur = recherche_indice_joueur(joueur,Scores_Jeux) #on cherche l'indice du joueur dans le tableau des scores
 
-    if indice_joueur==-1:
-        Scores_Jeux.append(ajout_joueur(joueur))
-    indice_joueur = recherche_indice_joueur(joueur,Scores_Jeux)
+    if indice_joueur==-1: #si le joueur n'existe pas on l'ajoute
+        Scores_Jeux.append(ajout_joueur(joueur)) 
+    indice_joueur = recherche_indice_joueur(joueur,Scores_Jeux) 
+
+    #on ajoute le score en fonction du mini jeu
 
     if mini_jeu=="allumettes":
         Scores_Jeux[indice_joueur].allumettes += score
@@ -120,12 +124,12 @@ def tri_score(Scores_Jeux : list[Scores], mini_jeu : str) -> list[Scores]:
     Sortie : 
         Scores_Jeux (list[Scores]) : Scores triés des joueurs pour chaque mini jeux 
     """
-    p : int
-    p = len(Scores_Jeux)-1
-    echange : bool
-    echange = True
+    p : int 
+    p = len(Scores_Jeux)-1 #on initialise p à la taille du tableau -1
+    echange : bool 
+    echange = True #on initialise echange à True pour rentrer dans la boucle
     tmp : Scores
-    while echange and p>0:
+    while echange and p>0: #tant qu'il y a eu un échange et que p est supérieur à 0 on continue de trier
         echange = False
         for i in range(0,p):
             if getattr(Scores_Jeux[i], mini_jeu) < getattr(Scores_Jeux[i + 1], mini_jeu):
@@ -139,15 +143,18 @@ def tri_score(Scores_Jeux : list[Scores], mini_jeu : str) -> list[Scores]:
 def afficher_scores(Scores_Jeux : list[Scores]):
     """
     Fonction qui permet d'afficher les scores des 5 meilleurs joueurs dans chaque mini jeu
+    Entree : Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
+    Sortie : rien
     """
 
-    Scores_Jeux = tri_score(Scores_Jeux,"puissance4")
+    Scores_Jeux = tri_score(Scores_Jeux,"puissance4") #on trie les scores pour chaque mini jeu
+
     print(r"""        ____  __  __  ____  ___  ___    __    _  _  ___  ____     __         
  ___   (  _ \(  )(  )(_  _)/ __)/ __)  /__\  ( \( )/ __)( ___)   /. |    ___ 
 (___)   )___/ )(__)(  _)(_ \__ \\__ \ /(__)\  )  (( (__  )__)   (_  _)  (___)
        (__)  (______)(____)(___/(___/(__)(__)(_)\_)\___)(____)    (_)        """)
-    for i in range(0,len(Scores_Jeux[slice(5)])):
-        print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].puissance4}")
+    for i in range(0,len(Scores_Jeux[slice(5)])): #on affiche les 5 meilleurs scores pour chaque mini jeu
+        print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].puissance4}") #on affiche le nom du joueur et son score
     input("Appuyez sur entrée pour afficher la page suivante : ")
     clear_terminal()
 
