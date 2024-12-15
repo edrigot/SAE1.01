@@ -372,9 +372,9 @@ def morpion(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 :str, Score
             existe_gagnant = gagnant(tab,symbolej2)
 
     if reste_place(tab)==False and existe_gagnant==False:
-        print("Egalité")
+        print("Egalite")
     else:
-        print(f"Le gagnant est {j_gagnant} et le perdant est {j_perdant}")
+        print(f"{j_gagnant} a gagne!")
         Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"morpion",j_gagnant,1)
 
     choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")

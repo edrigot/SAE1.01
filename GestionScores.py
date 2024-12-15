@@ -1,6 +1,7 @@
 from typing import BinaryIO
 import pickle
 from modules import clear_terminal
+import os
 
 class Scores:
     nom : str
@@ -20,6 +21,11 @@ def lecture_Scores(Scores_Jeux : list[Scores]) -> list[Scores]:
     """
     fichier : BinaryIO
     fin : bool
+    if not os.path.exists("scores.dat"):
+        with open("scores.dat", "wb") as fichier:
+            pickle.dump([], fichier)    
+        with open("scores.dat", "wb") as fichier:
+            pass
     fin = False
     fichier = open("scores.dat","rb") #on ouvre le fichier en mode lecture binaire
     while not fin:
