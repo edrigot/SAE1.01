@@ -9,20 +9,20 @@ import GestionScores
 
 def afficher_regles_devinette():
     """
-    Fonction qui permet d'afficher les règles du jeu des allumettes
+    Fonction qui permet d'afficher les regles du jeu des allumettes
     """
     print(r"""        ____  ____  ___  __    ____  ___        
  ___   (  _ \( ___)/ __)(  )  ( ___)/ __)   ___ 
 (___)   )   / )__)( (_-. )(__  )__) \__ \  (___)
        (_)\_)(____)\___/(____)(____)(___/       """)
-    print("Le joueur 1 choisi un nombre entre 1 et une limite à décider.")
+    print("Le joueur 1 choisi un nombre entre 1 et une limite à decider.")
     print("Le joueur 2 doir deviner ce nombre : à chacune de ses propositions, le joueur 1 répond 'trop petit','trop grand' ou 'c'est gagné'")
-    input("Appuyez sur entrée pour retourner au menu : ")
+    input("Appuyez sur entree pour retourner au menu : ")
 
 def menudevinette(nbtour:int,joueur1:str,joueur2:str,Scores_Jeux : list[GestionScores.Scores]):
     """
     Fonction qui permet aux joueurs de choisir une des options du sous-menu du jeu des devinettes.
-    Les joueurs peuvent alors lancer une partie, afficher les règles, changer leur symbole ou retourner au menu principal
+    Les joueurs peuvent alors lancer une partie, afficher les regles, changer leur symbole ou retourner au menu principal
 
     Entrée:
         nbtour (int) : nombre de tour maximum pour laquelle la partie peut durer
@@ -57,7 +57,7 @@ def menudevinette(nbtour:int,joueur1:str,joueur2:str,Scores_Jeux : list[GestionS
 
 def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScores.Scores], mode_jeu : int):
     """
-    Fonction qui permet de démarrer le jeu des devinettes, le jeu se termine lorsque le joueur 2 trouve la bon nombre ou lorsque le nombre de tour maxium a été atteint
+    Fonction qui permet de demarrer le jeu des devinettes, le jeu se termine lorsque le joueur 2 trouve la bon nombre ou lorsque le nombre de tour maxium a ete atteint
 
     Entrée :
         nbtour (int) : nombre de tour maximum pour laquelle la partie peut durer
@@ -89,7 +89,7 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
 
     clear_terminal()
     if mode_jeu == 1: 
-        limite=saisir_entier_borne(f"{joueur2}, choisissez la limite : ",1,1000,"La limite doit être comprise entre 1 et 1000")
+        limite=saisir_entier_borne(f"{joueur2}, choisissez la limite : ",1,1000,"La limite doit etre comprise entre 1 et 1000")
         nombrechoisi=saisir_entier_borne(f"{joueur1},choisissez le nombre que vous souhaitez faire deviner, entre 1 et {limite}, : ",1,limite,"Le nombre n'est pas l'intervalle")
     elif mode_jeu == 2:
         joueur2="bot2"
@@ -156,20 +156,20 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
                     print("Vous ne pouvez pas mentir !!")
                     touractuel = touractuel + 1
     if touractuel>=nbtour:
-        print("Le nombre de tour maximum a été atteint")
-        print(f"La partie est terminé, {joueur1} a gagné ! ")
+        print("Le nombre de tour maximum a ete atteint")
+        print(f"La partie est termine, {joueur1} a gagne ! ")
         gagnant = joueur1
     else:
-        print(f"La partie est terminé, {joueur2} a gagné ! ")
+        print(f"La partie est termine, {joueur2} a gagne ! ")
         gagnant = joueur2
 
 
     Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"devinettes",gagnant,1)
 
-    choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
+    choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")
     while choix!="O" and choix!="N" and choix=="":
         print("Veuillez choisir O ou N")
-        choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
+        choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")
     if choix=="O":
         clear_terminal()
         devinette(nbtour,joueur1,joueur2,Scores_Jeux,mode_jeu)

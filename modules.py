@@ -24,14 +24,14 @@ def saisir_entier_borne(message : str, borneinf : int, bornesup : int, message_e
 
 def afficher_menu_minijeux():
     """
-    Procédure permettant d'afficher le sous-menu des mini-jeux
-    entrée: rien
+    Procedure permettant d'afficher le sous-menu des mini-jeux
+    entree: rien
     sortie: rien
     """
     print("----------------------")
     print("|1 -- Jouer          |")
-    print("|2 -- Règles du jeu  |")
-    print("|3 -- Paramètres     |")
+    print("|2 -- Regles du jeu  |")
+    print("|3 -- Parametres     |")
     print("|4 -- Menu principal |")
     print("----------------------")
 
@@ -39,7 +39,7 @@ def afficher_menu_minijeux():
 def remplissage_tab(tab : list[list[str]], nb_colonnes : int, nb_lignes : int) -> list[list[str]]:
     """
     Fonction permettant de préparer un tableau pour les jeux du morpion et du puissance 4
-    Le tableau est de taille variable et est sous la forme (pour un tableau de 3 lignes et 7 colones) :
+    Le tableau est de taille variable et est sous la forme (pour un tableau de 3 lignes et 3 colones) :
     |-|-|-|
     |-|-|-|
     |-|-|-|
@@ -69,10 +69,10 @@ def remplissage_tab(tab : list[list[str]], nb_colonnes : int, nb_lignes : int) -
 
 def affichage_tab(tab : list[list[str]]):
     """
-    Procedure qui permet d'afficher un tableau en revenant à la ligne à chaque fois que les colones d'une lignes sont affichés
+    Procedure qui permet d'afficher un tableau en revenant à la ligne a chaque fois que les colones d'une lignes sont affiches
 
     Entrée :
-        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être déja déclaré et initalisé avant l'utilsation de la fonction
+        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être deja declare et initalise avant l'utilsation de la fonction
     Sortie :
         rien
     """
@@ -85,14 +85,14 @@ def affichage_tab(tab : list[list[str]]):
 
 def reste_place(tab : list[list[str]]) -> bool:
     """
-    Fonction qui permet de savoir s'il reste au moins une case de libre dans un tableau dèjà rempli pour une utilisation pour le morpion ou le puissance 4
+    Fonction qui permet de savoir s'il reste au moins une case de libre dans un tableau deja rempli pour une utilisation pour le morpion ou le puissance 4
     Une est libre lorsqu'elle contient la chaine de caractere : "-"
 
     Entrée :
-        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être déja déclaré et initalisé avant l'utilsation de la fonction. 
-                                Il doit etre dèjà rempli pour une utilisation pour le morpion ou le puissance 4 
+        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être deja declare et initalise avant l'utilsation de la fonction. 
+                                Il doit etre deja rempli pour une utilisation pour le morpion ou le puissance 4 
     Sortie :
-        reste_place (bool) : Booléen qui renvoi "True" si au moins une case est vide et "False" sinon 
+        reste_place (bool) : Booleen qui renvoi "True" si au moins une case est vide et "False" sinon 
     """
     reste_place : bool
     reste_place = False
@@ -110,12 +110,12 @@ def case_vide(tab : list[list[str]], colonne : int, ligne : int) -> bool:
     Fonction permettant de savoir si une case est libre et donc si l'on peut jouer sur cette case
 
     Entrée :
-        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit être déja déclaré et initalisé avant l'utilsation de la fonction. 
-                                Il doit etre dèjà rempli pour une utilisation pour le morpion ou le puissance 4 
+        tab (list[list[str]]) : Tableau de chaines de caracteres qui doit etre deja declare et initalisz avant l'utilsation de la fonction. 
+                                Il doit etre deja rempli pour une utilisation pour le morpion ou le puissance 4 
         colonne (int) : numero de la colonne ou se trouve la case
         ligne (int) : numero de la ligne ou se trouve la case
     Sortie :
-        est_vide (bool) : Booléen qui renvoi "True" si la case est vide et "False" sinon 
+        est_vide (bool) : Booleen qui renvoi "True" si la case est vide et "False" sinon 
     """
     est_vide : bool
     est_vide = True
@@ -129,7 +129,7 @@ def case_vide(tab : list[list[str]], colonne : int, ligne : int) -> bool:
 
 def clear_terminal():
     """
-    Procédure qu permet de determiner le système d'exploitation et d'effectuer la commande approprie pour effacer le terminal
+    Procédure qu permet de determiner le systeme d'exploitation et d'effectuer la commande approprie pour effacer le terminal
     entrée: rien*
     sortie: rien
     """
@@ -165,7 +165,7 @@ def menu_bot_joueur() -> int:
 
 def menu_niveau_bot() -> int:
     """
-    Fonction qui permet d'afficher le menu pour choisir le niveau de difficulté pour les jeux contre l'ordinateur
+    Fonction qui permet d'afficher le menu pour choisir le niveau de difficulte pour les jeux contre l'ordinateur
     Entrée : rien
     Sortie : entier correspondant au choix de l'utilisateur
     """
@@ -180,7 +180,7 @@ def menu_niveau_bot() -> int:
     print("|3 -- Difficile |")
     print("-----------------")
 
-    choix = saisir_entier_borne("Veuillez choisir la difficulté : ",1,3,"Erreur, choix indisponible")
+    choix = saisir_entier_borne("Veuillez choisir la difficulte : ",1,3,"Erreur, choix indisponible")
     clear_terminal()
     return choix
 
@@ -188,7 +188,7 @@ def menu_niveau_bot() -> int:
 
 def menu_niveau_bot_allumettes() -> int:
     """
-    Fonction qui permet d'afficher le menu pour choisir le niveau de difficulté pour le jeu des allumettes contre l'ordinateur
+    Fonction qui permet d'afficher le menu pour choisir le niveau de difficulte pour le jeu des allumettes contre l'ordinateur
     Entrée : rien
     Sortie : entier correspondant au choix de l'utilisateur
     """
@@ -201,9 +201,9 @@ def menu_niveau_bot_allumettes() -> int:
     print("|1 -- Facile     |")
     print("|2 -- Moyen      |")
     print("|3 -- Difficile  |")
-    print("|4 -- impossible |")
+    print("|4 -- Impossible |")
     print("-----------------")
 
-    choix = saisir_entier_borne("Veuillez choisir la difficulté : ",1,4,"Erreur, choix indisponible")
+    choix = saisir_entier_borne("Veuillez choisir la difficulte : ",1,4,"Erreur, choix indisponible")
     clear_terminal()
     return choix

@@ -17,11 +17,11 @@ def ajout_symbole_col(tab : list[list[str]], symbole : str, colonne : int) -> li
     Fonction qui permet d'ajouter le symbole du joueur à la ligne la plus basse de la colonne
 
     Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole (str) : symbole du joueur
-        colonne (int) : colonne dans laquelle le symbole sera ajouté 
+        colonne (int) : colonne dans laquelle le symbole sera ajoute 
     Sortie :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajouté
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajoute
     """
     ligne : int
     ligne = 0
@@ -41,15 +41,15 @@ def ajout_symbole_col(tab : list[list[str]], symbole : str, colonne : int) -> li
 
 def ajout_symbole_p4(joueur : str, tab : list[list[str]], symbole : str) -> list[list[str]]:
     """
-    Fonction qui permet au joueur de séléctionner une colonne et d'ajouter son symbole si ou moins une case dans la colonne choisi est libre.
+    Fonction qui permet au joueur de selectionner une colonne et d'ajouter son symbole si ou moins une case dans la colonne choisi est libre.
     Le symbole est ajouté dans la ligne la plus basse libre.
 
     Entrée :
         joueur (str) : pseudo du joueur qui va ajouter son symbole
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole (str) : symbole du joueur
     Sortie :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajouté
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajoute
     """
     case_libre : bool
     case_libre = False
@@ -66,15 +66,15 @@ def ajout_symbole_p4(joueur : str, tab : list[list[str]], symbole : str) -> list
 
 def ajout_symbole_bot_p4(tab : list[list[str]], symbole :str, niveau : int, symbole_adv : str) -> list[list[str]]:
     """
-    Fonction qui permet à l'ordinateur de placer son symbole sur une des colonnes. L'ordinateur choisit la colonne où ajouter son symbole en fonction de son niveau (de 1 à 3)
+    Fonction qui permet à l'ordinateur de placer son symbole sur une des colonnes. L'ordinateur choisit la colonne ou ajouter son symbole en fonction de son niveau (de 1 à 3)
 
-    Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+    Entree :
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole (str) : symbole de l'ordinateur
         niveau (int) : niveau de l'ordinateur
         symbole_adv (str) : symbole de l'adversaire contre qui l'ordinateur joue
     Sortie :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajouté
+        tab (list[list[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajouté
     """
     case_libre : bool
     case_libre = False
@@ -97,15 +97,15 @@ def ajout_symbole_bot_p4(tab : list[list[str]], symbole :str, niveau : int, symb
 
 def ajout_n2_p4(tab : list[list[str]], symbole : str) -> list[list[str]]:
     """
-    Fonction qui permet d'ajouter le symbole de l'ordinateur à une colonne proche d'un de ses symboles deja présent sur le plateau de jeu.
-    Au premier tour, la colonne est choisie aléatoirement en utilisant le niveau 1 de l'ordinateur
+    Fonction qui permet d'ajouter le symbole de l'ordinateur a une colonne proche d'un de ses symboles deja present sur le plateau de jeu.
+    Au premier tour, la colonne est choisie aleatoirement en utilisant le niveau 1 de l'ordinateur
     Cette fonction represente le niveau 2 de l'ordinateur
 
     Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole (str) : symbole de l'ordinateur
     Sortie :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajouté
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajoute
     """
     col_libres : list[int]
     col_libres = []
@@ -140,7 +140,7 @@ def ajout_n2_p4(tab : list[list[str]], symbole : str) -> list[list[str]]:
 
 def ajout_n3_p4(tab : list[list[str]], symbole : str, symbole_adv : str) -> list[list[str]]:
     """
-    Fonction qui permet d'ajouter le symbole de l'ordinateur à une colonne proche d'un de ses symboles deja présent sur le plateau de jeu ou à une colonne pour empecher l'adversaire de gagner la partie.
+    Fonction qui permet d'ajouter le symbole de l'ordinateur à une colonne proche d'un de ses symboles deja present sur le plateau de jeu ou à une colonne pour empecher l'adversaire de gagner la partie.
     Par exemple si l'adversaire n'a plus qu'un seul symbole à placer pour gagner (horizontalement, verticalement ou en diagonal), la colonne choisie sera celle qui aurait permis à l'adversaire de gagner.
     Cette fonction represente le niveau 3 de l'ordinateur
 
@@ -237,13 +237,13 @@ def ajout_n3_p4(tab : list[list[str]], symbole : str, symbole_adv : str) -> list
 
 def check_colonne_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
     """
-    Fonction qui permet de savoir si un joueur a gagné en alignant 4 pions verticalement sur une colonne
+    Fonction qui permet de savoir si un joueur a gagne en alignant 4 pions verticalement sur une colonne
 
-    Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+    Entree :
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole_joueur (str) : symbole du joueur 
     Sortie :
-        victoire (bool) : Booléen qui retourne "True" si le joueur a gagné et "False" sinon
+        victoire (bool) : Booléen qui retourne "True" si le joueur a gagne et "False" sinon
     """
     victoire : bool
     victoire = False
@@ -263,13 +263,13 @@ def check_colonne_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
 
 def check_ligne_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
     """
-    Fonction qui permet de savoir si un joueur a gagné en alignant 4 pions horizontalement sur une ligne
+    Fonction qui permet de savoir si un joueur a gagne en alignant 4 pions horizontalement sur une ligne
 
-    Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+    Entree :
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole_joueur (str) : symbole du joueur 
     Sortie :
-        victoire (bool) : Booléen qui retourne "True" si le joueur a gagné et "False" sinon
+        victoire (bool) : Booleen qui retourne "True" si le joueur a gagne et "False" sinon
     """
     victoire : bool
     victoire = False
@@ -289,13 +289,13 @@ def check_ligne_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
 
 def check_diagonale_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
     """
-    Fonction qui permet de savoir si un joueur a gagné en alignant 4 pions en diagonal
+    Fonction qui permet de savoir si un joueur a gagne en alignant 4 pions en diagonal
 
-    Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+    Entree :
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole_joueur (str) : symbole du joueur 
     Sortie :
-        victoire (bool) : Booléen qui retourne "True" si le joueur a gagné et "False" sinon
+        victoire (bool) : Booléen qui retourne "True" si le joueur a gagne et "False" sinon
     """
     victoire : bool
     victoire = False
@@ -323,13 +323,13 @@ def check_diagonale_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
 
 def gagnant_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
     """
-    Fonction permettant de vérifier sur une des conditions de victoire (alignement horizontal, vertical, en diagonal) est vraie
+    Fonction permettant de verifier sur une des conditions de victoire (alignement horizontal, vertical, en diagonal) est vraie
 
     Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole_joueur (str) : symbole du joueur
     Sortie : 
-        est_gagnant (bool) : Booléen qui retourne "True" si une des conditions de victoire est vrai et "False" sinon
+        est_gagnant (bool) : Booleen qui retourne "True" si une des conditions de victoire est vrai et "False" sinon
     """
     est_gagnant : bool
     est_gagnant = False
@@ -340,7 +340,9 @@ def gagnant_p4(tab : list[list[str]], symbole_joueur : str) -> bool:
 
 def afficher_regles_p4():
     """
-    Fonction qui affiche les règles du puissance 4
+    Fonction qui affiche les regles du puissance 4
+    entrée : rien
+    sortie : rien
     """
     print(r"""        ____  ____  ___  __    ____  ___        
  ___   (  _ \( ___)/ __)(  )  ( ___)/ __)   ___ 
@@ -350,11 +352,11 @@ def afficher_regles_p4():
     print("Le but du jeu est d'aligner une suite de 4 pions de meme symbole sur une grille de 6*7")
     print("Tour à tour les joueurs placent un pion dans la colonne de leur choix, le pion coulisse alors jusqu'à la position la plus basse possible")
     print("Le vainqueur est le joueur qui realise le premier un alignement (horizontal, vertical, diagonal) d'au moins 4 pions")
-    input("Appuyez sur entrée pour retourner au menu : ")
+    input("Appuyez sur entree pour retourner au menu : ")
 
 def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, Scores_Jeux : list[GestionScores.Scores], mode_jeu : int ):
     """
-    Fonction qui permet de démarrer le puissance 4, les joueurs jouent chacun leur tour jusqu'à ce que le tableau du jeu soit rempli ou lorsqu'un des joueurs gagne
+    Procedure qui permet de demarrer le puissance 4, les joueurs jouent chacun leur tour jusqu'à ce que le tableau du jeu soit rempli ou lorsqu'un des joueurs gagne
 
     Entrée :
         joueur1 (str) : pseudo du joueur 1
@@ -362,7 +364,9 @@ def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, S
         symbolej1 (str) : symbole que le joueur 1 place dans le tableau du jeu
         symbolej2 (str) : symbole que le joueur 2 place dans le tableau du jeu
         Scores_Jeux (list[GestionScores.Scores]) : Scores des joueurs pour chaque mini jeux 
-        mode_jeu (int) : mode de jeu pour lequel le jeu sera lancé (1 pour joueur contre joueur, 2 pour joueur contre ordinateur, 3 pour ordinateur contre ordinateur, 0 pour laisser le joueur choisir)
+        mode_jeu (int) : mode de jeu pour lequel le jeu sera lancé 
+        (1 pour joueur contre joueur, 2 pour joueur contre ordinateur, 3 pour ordinateur contre ordinateur, 0 pour laisser le joueur choisir)
+    Sortie : rien
     """
     tab : list[list[str]]
     tab = list([])
@@ -467,7 +471,7 @@ def choix_menu_p4(joueur1 : str, joueur2 : str, Scores_Jeux : list[GestionScores
             symbole_j1 = input(f"{joueur1}, entrez votre nouveau symbole : ")
             symbole_j2 = input(f"{joueur2}, entrez votre nouveau symbole : ")
             if symbole_j1 == symbole_j2:
-                print("Les symboles doivent être différents")
+                print("Les symboles doivent être differents")
                 symbole_j1 = "O"
                 symbole_j2 = "X"
                 time.sleep(2)

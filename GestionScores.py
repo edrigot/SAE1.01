@@ -12,7 +12,7 @@ class Scores:
 
 def lecture_Scores(Scores_Jeux : list[Scores]) -> list[Scores]:
     """
-    Fonction qui permet d'importer les données du fichier scores.dat
+    Fonction qui permet d'importer les donnees du fichier scores.dat
 
     Entrée : 
         Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
@@ -38,7 +38,7 @@ def lecture_Scores(Scores_Jeux : list[Scores]) -> list[Scores]:
 
 def sauvegarde_scores(Scores_Jeux : list[Scores]):
     """
-    Fonction qui permet de sauvegarder les nouveaux score ajouté durant l'exécution du programme dans le fichier scores.dat
+    Fonction qui permet de sauvegarder les nouveaux score ajoute durant l'exécution du programme dans le fichier scores.dat
 
     Entrée:
         Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
@@ -46,7 +46,7 @@ def sauvegarde_scores(Scores_Jeux : list[Scores]):
         rien
     """
     fichier : BinaryIO
-    fichier = open("scores.dat","wb") #on ouvre le fichier en mode écriture binaire
+    fichier = open("scores.dat","wb") #on ouvre le fichier en mode ecriture binaire
     for i in range(0,len(Scores_Jeux)): #on parcourt le tableau des scores pour le sauvegarder
         pickle.dump(Scores_Jeux[i],fichier) #on sauvegarde chaque objet dans le fichier
     fichier.close()
@@ -63,7 +63,7 @@ def recherche_indice_joueur(joueur : str, Scores_Jeux : list[Scores]) -> int:
     """
     for i in range(0,len(Scores_Jeux)): #on parcourt le tableau des scores dans le but de trouver le joueur
         if Scores_Jeux[i].nom==joueur:
-            return i #on retourne l'indice du joueur s'il est trouvé
+            return i #on retourne l'indice du joueur s'il est trouve
     return -1 #on retourne -1 si le joueur n'est pas trouvé
 
 def ajout_joueur(pseudo : str) -> Scores:
@@ -91,7 +91,7 @@ def ajout_score(Scores_Jeux : list[Scores], mini_jeu : str, joueur : str, score 
 
     Entrée :
         Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
-        mini_jeu (str) : le nom du mini jeu dans lequel le score doit être modifié
+        mini_jeu (str) : le nom du mini jeu dans lequel le score doit être modifie
         joueur (str) : le nom du joueur à qui le score doit être modifié
         score (int) : le score à ajouter
     Sortie :
@@ -126,9 +126,9 @@ def tri_score(Scores_Jeux : list[Scores], mini_jeu : str) -> list[Scores]:
 
     Entrée :
         Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
-        mini_jeu (str) : nom du mini jeu pour lequel les scores doivent être triés
+        mini_jeu (str) : nom du mini jeu pour lequel les scores doivent être tries
     Sortie : 
-        Scores_Jeux (list[Scores]) : Scores triés des joueurs pour chaque mini jeux 
+        Scores_Jeux (list[Scores]) : Scores tries des joueurs pour chaque mini jeux 
     """
     p : int 
     p = len(Scores_Jeux)-1 #on initialise p à la taille du tableau -1
@@ -148,7 +148,7 @@ def tri_score(Scores_Jeux : list[Scores], mini_jeu : str) -> list[Scores]:
 
 def afficher_scores(Scores_Jeux : list[Scores]):
     """
-    Fonction qui permet d'afficher les scores des 5 meilleurs joueurs dans chaque mini jeu
+    Procedure qui permet d'afficher les scores des 5 meilleurs joueurs dans chaque mini jeu
     Entree : Scores_Jeux (list[Scores]) : Scores des joueurs pour chaque mini jeux 
     Sortie : rien
     """
@@ -161,7 +161,7 @@ def afficher_scores(Scores_Jeux : list[Scores]):
        (__)  (______)(____)(___/(___/(__)(__)(_)\_)\___)(____)    (_)        """)
     for i in range(0,len(Scores_Jeux[slice(5)])): #on affiche les 5 meilleurs scores pour chaque mini jeu
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].puissance4}") #on affiche le nom du joueur et son score
-    input("Appuyez sur entrée pour afficher la page suivante : ")
+    input("Appuyez sur entree pour afficher la page suivante : ")
     clear_terminal()
 
     Scores_Jeux = tri_score(Scores_Jeux,"morpion")
@@ -171,7 +171,7 @@ def afficher_scores(Scores_Jeux : list[Scores]):
        (_/\/\_)(_____)(_)\_)(__)  (____)(_____)(_)\_)       """)
     for i in range(0,len(Scores_Jeux[slice(5)])):
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].morpion}")
-    input("Appuyez sur entrée pour afficher la page suivante : ")
+    input("Appuyez sur entree pour afficher la page suivante : ")
     clear_terminal()
 
     Scores_Jeux = tri_score(Scores_Jeux,"devinette")
@@ -181,7 +181,7 @@ def afficher_scores(Scores_Jeux : list[Scores]):
        (____/(____)  \/  (____)(_)\_)(____) (__)  (__) (____)       """)
     for i in range(0,len(Scores_Jeux[slice(5)])):
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].devinette}")
-    input("Appuyez sur entrée pour afficher la page suivante : ")
+    input("Appuyez sur entree pour afficher la page suivante : ")
     clear_terminal()
 
     Scores_Jeux = tri_score(Scores_Jeux,"allumettes")
@@ -192,6 +192,6 @@ def afficher_scores(Scores_Jeux : list[Scores]):
     for i in range(0,len(Scores_Jeux[slice(5)])):
         print(f"{Scores_Jeux[i].nom} : {Scores_Jeux[i].allumettes}")
 
-    input("Appuyez sur entrée pour retourner au menu : ")
+    input("Appuyez sur entree pour retourner au menu : ")
 
     

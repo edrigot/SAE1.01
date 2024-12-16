@@ -8,9 +8,9 @@ import GestionScores
 
 def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_Jeux : list[GestionScores.Scores], mode_jeu : int):
     """
-    Fonction qui permet de démarrer le mini jeux des allumettes.
-    Les joueurs jouent chacun leur tour jusqu'à ce qu'il n'y est plus d'allumettes.
-    A la fin de la partie le joueur a la possibilité de rejouer une partie contre le même joueur
+    Procedure qui permet de deemarrer le mini jeux des allumettes.
+    Les joueurs jouent chacun leur tour jusqu'a ce qu'il n'y est plus d'allumettes.
+    A la fin de la partie le joueur a la possibilite de rejouer une partie contre le meme joueur
 
     Entrée :
         joueur1 (str) : pseudo du joueur 1
@@ -29,7 +29,7 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
     if mode_jeu == 0:
         mode_jeu = menu_bot_joueur()
     if mode_jeu != 1:
-        niveau_bot = menu_niveau_bot_allumettes()
+        niveau_bot = menu_niveau_bot_allumettes() #On demande le niveau de difficulte de l'ordinateur 
         joueur2 = "bot2"
 
     current_player = joueur1
@@ -68,12 +68,12 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
 
     clear_terminal()
     print(f"{perdant} a perdu, dommage")
-    print(f"{gagnant} a gagné, bravo")
+    print(f"{gagnant} a gagne, bravo")
     Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"allumettes",gagnant,1)
-    choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
+    choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")
     while choix!="O" and choix!="N" and choix=="":
         print("Veuillez choisir O ou N")
-        choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
+        choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")
     if choix=="O":
         nb_allumettes = nb_allumettes_depart
         clear_terminal()
@@ -84,15 +84,15 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
 
 def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
     """
-    Fonction permettant à l'ordinateur de jouer et de choisir un nombre d'allumettes à retirer. Ce choix se fait en fonction du niveau de l'ordinateur.
-    Chaque niveau d'ordinateur a une stratégie différente pour choisir le nombre d'allumettes à retirer.
-    Le niveau 1 est aléatoire, le niveau 2 est basé sur une stratégie simple et le niveau 3 est basé sur une stratégie plus complexe, le niveau 4 est un niveau de difficulté supplémentaire.
+    Fonction permettant a l'ordinateur de jouer et de choisir un nombre d'allumettes a retirer. Ce choix se fait en fonction du niveau de l'ordinateur.
+    Chaque niveau d'ordinateur a une stratégie differente pour choisir le nombre d'allumettes a retirer.
+    Le niveau 1 est aleatoire, le niveau 2 est base sur une strategie simple et le niveau 3 est base sur une strategie plus complexe, le niveau 4 est un niveau de difficulte supplementaire.
 
     Entrée :
         nb_allumettes (int) : nombre d'allumettes restant pour la partie en cours
         niveau (int) : niveau de l'ordinateur
     Sortie :
-        reste_allumettes (int) : Nombre d'allumettes restant pour la partie en cours après avoir retirer le choix de l'ordinateur
+        reste_allumettes (int) : Nombre d'allumettes restant pour la partie en cours apres avoir retirer le choix de l'ordinateur
     """
     choix : int 
     reste_allumettes : int
@@ -110,7 +110,7 @@ def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
         else:
             choix = random.randint(1,2)
     if niveau == 3:
-        if hasard < 1: #On simule un choix aléatoire pour savoir si l'ordinateur va jouer aléatoirement ou non
+        if hasard < 1: #On simule un choix aleatoire pour savoir si l'ordinateur va jouer aleatoirement ou non
             if (reste_allumettes) % 4 == 0:
                 choix = 3
             elif (reste_allumettes) % 4 == 1:
@@ -137,7 +137,7 @@ def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
                     choix = random.randint(2,3)
             else:
                 choix = random.randint(1,3)
-    if niveau == 4: #Niveau 4 est un niveau de difficulté supplémentaire
+    if niveau == 4: #Niveau 4 est un niveau de difficulte supplementaire
         if (reste_allumettes) % 4 == 0:
                 choix = 3
         elif (reste_allumettes) % 4 == 1:
@@ -162,7 +162,7 @@ def choix_allumettes(nb_allumettes : int, joueur : str) -> int:
         nb_allumettes (int) : nombre d'allumettes encore disponible pour la partie
         joueur (str) : pseudo du joueur
     Sortie :
-        reste_allumettes (int) : nombre d'allumettes restant après avoir appliquer le choix du joueur
+        reste_allumettes (int) : nombre d'allumettes restant apres avoir appliquer le choix du joueur
     """
     reste_allumettes : int
     reste_allumettes = nb_allumettes
@@ -182,7 +182,10 @@ def choix_allumettes(nb_allumettes : int, joueur : str) -> int:
 
 def afficher_regles_allumettes(nb_allumettes_depart : int):
     """
-    Fonction qui permet d'afficher les règles du jeu des allumettes
+    Procedure qui permet d'afficher les regles du jeu des allumettes
+    Entrée :
+        nb_allumettes_depart (int) : nombre d'allumettes disponible lorsque la partie commence
+    Sortie : rien (affichage des regles)
     """
     print(r"""        ____  ____  ___  __    ____  ___        
  ___   (  _ \( ___)/ __)(  )  ( ___)/ __)   ___ 
@@ -190,13 +193,16 @@ def afficher_regles_allumettes(nb_allumettes_depart : int):
        (_)\_)(____)\___/(____)(____)(___/       """)
     
     print(f"On dispose d'un tas de {nb_allumettes_depart} d'allumettes.")
-    print("Chaque joueur à tour de rôle peut en prélever 1,2 ou 3.")
-    print("Le perdant est celui qui prend la dernière allumette.")
-    input("Appuyez sur entrée pour retourner au menu : ")
+    print("Chaque joueur a tour de role peut en prelever 1,2 ou 3.")
+    print("Le perdant est celui qui prend la derniere allumette.")
+    input("Appuyez sur entree pour retourner au menu : ")
 
 def afficher_allumettes(nb_allumettes : int):
     """
-    procédure qui permet dd'afficher le nombre d'allumettes restantes
+    Procédure qui permet dd'afficher le nombre d'allumettes restantes
+    Entrée :
+        nb_allumettes (int) : nombre d'allumettes restantes
+    Sortie : rien (affichage des allumettes)
     """
     compteur_j:int
 
@@ -216,14 +222,15 @@ def afficher_allumettes(nb_allumettes : int):
 
 def choix_menu_allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_Jeux : list[GestionScores.Scores]):
     """
-    Fonction qui permet aux joueurs de choisir une des options du sous-menu des allumettes.
-    Les joueurs peuvent alors lancer une partie, afficher les règles, changer leur symbole ou retourner au menu principal
+    Procedure qui permet aux joueurs de choisir une des options du sous-menu des allumettes.
+    Les joueurs peuvent alors lancer une partie, afficher les regles, changer leur symbole ou retourner au menu principal
 
     Entrée:
         joueur1 (str) : pseudo du joueur 1
         joueur2 (str) : pseudo du joueur 2
         nb_allumettes_depart (int) : nombre d'allumettes disponible lorsque la partie commence
         Scores_Jeux (list[GestionScores.Scores]) : Scores des joueurs pour chaque mini jeux 
+    Sortie : rien
     """
 
     choix : int
@@ -251,10 +258,10 @@ def choix_menu_allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : i
 
 def changement_settings_allumettes() -> int:
     """
-    Fonction qui permet de changer le nombre d'alllumettes de départ d'une partie du jeu des allumettes
+    Fonction qui permet de changer le nombre d'allumettes de depart d'une partie du jeu des allumettes
     Entrée :   rien
     Sortie :
-        nouvelle_valeur (int) : Le nouveau nombre d'allumettes de départ
+        nouvelle_valeur (int) : Le nouveau nombre d'allumettes de depart
     """
     print(r"""        ____   __    ____    __    __  __  ____  ____  ____  ____  ___        
  ___   (  _ \ /__\  (  _ \  /__\  (  \/  )( ___)(_  _)(  _ \( ___)/ __)   ___ 
@@ -262,7 +269,7 @@ def changement_settings_allumettes() -> int:
        (__) (__)(__)(_)\_)(__)(__)(_/\/\_)(____) (__) (_)\_)(____)(___/       """)
     nouvelle_valeur : int
 
-    nouvelle_valeur = saisir_entier_borne("Entrez le nouveau nombre d'allumettes de départ (compris entre 0 et 50) : ",0,50,"Le nombre doit etre entre 0 et 50")
+    nouvelle_valeur = saisir_entier_borne("Entrez le nouveau nombre d'allumettes de depart (compris entre 0 et 50) : ",0,50,"Le nombre doit etre entre 0 et 50")
     clear_terminal()
     
     return nouvelle_valeur

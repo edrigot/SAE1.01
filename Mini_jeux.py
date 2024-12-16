@@ -22,6 +22,11 @@ menu_options = {
 
 #imprimer le menu
 def afficher_menu():
+    """
+    Procédure qui permet d'afficher le menu des mini jeux
+    Entrée : rien
+    Sortie : rien
+    """
     print(r""" ____  __      __    _  _  ____  ____ 
 (  _ \(  )    /__\  ( \( )( ___)(_  _)
  )___/ )(__  /(__)\  )  (  )__)   )(  
@@ -38,7 +43,7 @@ def choix_pseudo(j1 : str, j2 : str) -> str:
     Entrée: 
         j1 (str) : pseudo du joueur 1
         j2 (str) : pseudo du joueur 2 
-        str : retourne le pseudo du joueur qui veut le changer ou "Erreur" si il y a un problème dans l'exécution
+        str : retourne le pseudo du joueur qui veut le changer ou "Erreur" si il y a un probleme dans l'execution
     """
     choix_joueur :str
     choix_joueur = input(f"Quel joueur veut changer son pseudo {j1} ou {j2} ?  : ")
@@ -72,7 +77,7 @@ if __name__=="__main__":
         joueur1=input("Joueur 1-Quel est votre pseudo?: ")
     joueur2=input("Joueur 2-Quel est votre pseudo? : ")
     while joueur2=="" or joueur2==joueur1:
-        print("Veuillez entrer un pseudo différent du joueur 1")
+        print("Veuillez entrer un pseudo different du joueur 1")
         joueur2=input("Joueur 2-Quel est votre pseudo? : ")
 
     while choix_menu != 7:
@@ -86,10 +91,10 @@ if __name__=="__main__":
         if choix_menu == 1: 
             if choix_pseudo(joueur1, joueur2)==joueur1: #change le pseudo du joueur1
                 joueur1=input(f"{joueur1}, quel sera ton nouveau pseudo ? : ")
-                print("Changement enregistré !")
+                print("Changement enregistre !")
             else: #change le pseudo du joueur2
                 joueur2=input(f"{joueur2}, quel sera ton nouveau pseudo ? : ")
-                print("Changement enregistré !")
+                print("Changement enregistre !")
         elif choix_menu == 2: 
             Allumettes.choix_menu_allumettes(joueur1,joueur2,nb_allumettes_depart,Scores_Jeux)
         elif choix_menu == 3:
