@@ -362,7 +362,7 @@ def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, S
         symbolej1 (str) : symbole que le joueur 1 place dans le tableau du jeu
         symbolej2 (str) : symbole que le joueur 2 place dans le tableau du jeu
         Scores_Jeux (list[GestionScores.Scores]) : Scores des joueurs pour chaque mini jeux 
-        mmode_jeu (int) : mode de jeu pour lequel le jeu sera lancé (1 pour joueur contre joueur, 2 pour joueur contre ordinateur, 3 pour ordinateur contre ordinateur, 0 pour laisser le joueur choisir)
+        mode_jeu (int) : mode de jeu pour lequel le jeu sera lancé (1 pour joueur contre joueur, 2 pour joueur contre ordinateur, 3 pour ordinateur contre ordinateur, 0 pour laisser le joueur choisir)
     """
     tab : list[list[str]]
     tab = list([])
@@ -385,6 +385,7 @@ def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, S
     affichage_tab(tab)
 
     while existe_gagnant==False and reste_place(tab):
+        
         if mode_jeu == 1 or mode_jeu == 2:
             tab = ajout_symbole_p4(joueur1,tab,symbolej1)
             gagnant = joueur1
@@ -392,7 +393,7 @@ def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, S
                 perdant = "bot2"
             else: 
                 perdant = joueur2
-        else:
+        if mode_jeu==3:
             tab = ajout_symbole_bot_p4(tab,symbolej1,niveau_bot,symbolej2)
             gagnant = "bot1"
             perdant = "bot2"
