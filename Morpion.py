@@ -377,7 +377,8 @@ def morpion(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 :str, Score
         print("Egalite")
     else:
         print(f"{j_gagnant} a gagne!")
-        Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"morpion",j_gagnant,1)
+        if mode_jeu == 1 or (mode_jeu == 2 and gagnant == joueur1):
+            Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"morpion",j_gagnant,1)
     
 
     choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ") 

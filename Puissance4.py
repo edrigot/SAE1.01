@@ -420,7 +420,8 @@ def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, S
         print("Egalité")
     else:
         print(f"Le vainqueur est {gagnant} et le perdant est {perdant}")
-        Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"puissance4",gagnant,1)
+        if mode_jeu == 1 or (mode_jeu == 2 and gagnant == joueur1):
+            Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"puissance4",gagnant,1)
 
     choix = input("Voulez vous rejouer contre le même joueur ? O/N : ")
     while choix!="O" and choix!="N" and choix=="":

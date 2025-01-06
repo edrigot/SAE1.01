@@ -4,7 +4,6 @@ from modules import clear_terminal
 from modules import menu_bot_joueur
 from modules import menu_niveau_bot
 import random
-import time
 import GestionScores
 
 def choix_jeu_bot(niveau : int, nombrechoisi : int, reponse : int , valeur_min : int, valeur_max : int, limite : int):
@@ -120,9 +119,7 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
     valeur_max : int
     valeur_max = 0
     niveau_bot : int
-    start = 0.0
-    end = 0.0
-    end = int
+
 
     if mode_jeu == 0:
         mode_jeu = menu_bot_joueur()
@@ -147,7 +144,6 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
 
     
     clear_terminal()
-
     while (touractuel<=nbtour and gagnant==""):
         joueur_ment = True
         if touractuel==1:
@@ -162,9 +158,7 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
         if mode_jeu==1:
             nombredevine=saisir_entier_borne(f"{joueur2}, saisissez un nombre : ",1,limite,"Le nombre n'est pas l'intervalle")
         elif mode_jeu==2:
-            start = time.time()
             nombredevine=choix_jeu_bot(niveau_bot,nombrechoisi,reponse,valeur_min,valeur_max,limite)
-            end = time.time()
         else: 
             nombredevine=choix_jeu_bot(niveau_bot,nombrechoisi,reponse,valeur_min,valeur_max,limite)
         
@@ -210,9 +204,10 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
     else:
         print(f"La partie est termine, {joueur2} a gagne ! ")
         gagnant = joueur2
-    print(f"le temps de jeu est de {end-start} secondes")
+    
 
-    Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"devinettes",gagnant,1)
+    if mode_jeu == 1 or (mode_jeu == 2 and gagnant == joueur1):
+        Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"devinettes",gagnant,1)
     
     choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")
     while choix!="O" and choix!="N" and choix=="":
