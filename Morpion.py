@@ -9,7 +9,6 @@ from modules import menu_bot_joueur
 from modules import menu_niveau_bot
 import random
 import GestionScores
-import time
 
 def regle_morpion():
     """
@@ -341,7 +340,6 @@ def morpion(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 :str, Score
 
     tab = remplissage_tab(tab,7,3)
     affichage_tab(tab)
-    
     while existe_gagnant==False and reste_place(tab):
         if mode_jeu == 1 or mode_jeu == 2: 
             tab=ajout_symbole(joueur1,tab,symbolej1)
@@ -377,7 +375,7 @@ def morpion(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 :str, Score
         print("Egalite")
     else:
         print(f"{j_gagnant} a gagne!")
-        if mode_jeu == 1 or (mode_jeu == 2 and gagnant == joueur1):
+        if mode_jeu == 1 or (mode_jeu == 2 and j_gagnant == joueur1):
             Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"morpion",j_gagnant,1)
     
 

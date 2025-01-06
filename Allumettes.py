@@ -27,6 +27,7 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
     niveau_bot = 1
 
 
+
     if mode_jeu == 0:
         mode_jeu = menu_bot_joueur()
     if mode_jeu != 1:
@@ -34,7 +35,6 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
         joueur2 = "bot2"
 
     current_player = joueur1
-
     while nb_allumettes > 0:
         
         clear_terminal()
