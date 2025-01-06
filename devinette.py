@@ -30,17 +30,18 @@ def choix_jeu_bot(niveau : int, nombrechoisi : int, reponse : int , valeur_min :
         return random.randint(valeur_min,valeur_max)
     elif niveau == 2:
         if aleatoire == 1: 
-            return random.randint(nombrechoisi,valeur_max)
+            return random.randint(valeur_min, valeur_max)
         elif aleatoire == 2:
             if reponse == 1:
-                return random.randint(nombrechoisi,valeur_max)
+                return random.randint(nombrechoisi,valeur_max-1)
             elif reponse == 2:
-                return random.randint(valeur_min,nombrechoisi)
+                return random.randint(valeur_min+1,nombrechoisi)
     elif niveau == 3:
         if reponse == 1:
             return random.randint(nombrechoisi,valeur_max)
         elif reponse == 2:
             return random.randint(valeur_min,nombrechoisi)
+    return valeur_min  # Default return to ensure an integer is always returned
 
 def afficher_regles_devinette():
     """
@@ -119,7 +120,9 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
     valeur_max : int
     valeur_max = 0
     niveau_bot : int
-    niveau_bot = 1
+    start = 0.0
+    end = 0.0
+    end = int
 
     if mode_jeu == 0:
         mode_jeu = menu_bot_joueur()
@@ -159,9 +162,11 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
         if mode_jeu==1:
             nombredevine=saisir_entier_borne(f"{joueur2}, saisissez un nombre : ",1,limite,"Le nombre n'est pas l'intervalle")
         elif mode_jeu==2:
+            start = time.time()
             nombredevine=choix_jeu_bot(niveau_bot,nombrechoisi,reponse,valeur_min,valeur_max,limite)
+            end = time.time()
         else: 
-            nombredevine=choix_jeu_bot(niveau_bot,nombrechoisi,reponse,valeur_min,valeur_max,limite) or 0
+            nombredevine=choix_jeu_bot(niveau_bot,nombrechoisi,reponse,valeur_min,valeur_max,limite)
         
         clear_terminal()
         print(f"{joueur1}, veuillez choisir parmi les choix suivant : ")
@@ -205,10 +210,10 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
     else:
         print(f"La partie est termine, {joueur2} a gagne ! ")
         gagnant = joueur2
-
+    print(f"le temps de jeu est de {end-start} secondes")
 
     Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"devinettes",gagnant,1)
-
+    
     choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")
     while choix!="O" and choix!="N" and choix=="":
         print("Veuillez choisir O ou N")
