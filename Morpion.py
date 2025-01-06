@@ -139,7 +139,7 @@ def ajout_n3 (tab : list[list[str]], symbole : str, symbole_adv : str) -> list[l
     Cette fonction represente le niveau 3 de l'ordinateur
 
     Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
         symbole (str) : symbole de l'ordinateur
         symbole_adv (str) : symbole de l'adversaire contre qui l'ordinateur joue
     Sortie :
@@ -378,8 +378,9 @@ def morpion(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 :str, Score
     else:
         print(f"{j_gagnant} a gagne!")
         Scores_Jeux = GestionScores.ajout_score(Scores_Jeux,"morpion",j_gagnant,1)
+    
 
-    choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")
+    choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ") 
     while choix!="O" and choix!="N" and choix=="":
         print("Veuillez choisir O ou N")
         choix = input("Voulez vous rejouer contre le meme joueur ? O/N : ")

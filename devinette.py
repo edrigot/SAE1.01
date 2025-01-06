@@ -2,10 +2,45 @@ from modules import saisir_entier_borne
 from modules import afficher_menu_minijeux
 from modules import clear_terminal
 from modules import menu_bot_joueur
+from modules import menu_niveau_bot
 import random
 import time
 import GestionScores
 
+def choix_jeu_bot(niveau : int, nombrechoisi : int, reponse : int , valeur_min : int, valeur_max : int, limite : int):
+
+    """
+    fonction qui permet de choisir un nombre en fonction du niveau du bot
+    entree : 
+        niveau (int) : niveau du bot
+        nombrechoisi (int) : nombre choisi par le joueur
+        reponse (int) : reponse du joueur
+        valeur_min (int) : valeur minimale du nombre choisi par le bot
+        valeur_max (int) : valeur maximale du nombre choisi par le bot
+        sortie :
+            int : nombre choisi par le bot
+    """
+    if valeur_min == 0:
+        valeur_min = 1
+    if valeur_max == 0:
+        valeur_max = limite
+    aleatoire : int
+    aleatoire = random.randint(1,2)
+    if niveau == 1:
+        return random.randint(valeur_min,valeur_max)
+    elif niveau == 2:
+        if aleatoire == 1: 
+            return random.randint(nombrechoisi,valeur_max)
+        elif aleatoire == 2:
+            if reponse == 1:
+                return random.randint(nombrechoisi,valeur_max)
+            elif reponse == 2:
+                return random.randint(valeur_min,nombrechoisi)
+    elif niveau == 3:
+        if reponse == 1:
+            return random.randint(nombrechoisi,valeur_max)
+        elif reponse == 2:
+            return random.randint(valeur_min,nombrechoisi)
 
 def afficher_regles_devinette():
     """
@@ -83,9 +118,13 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
     valeur_min = 0
     valeur_max : int
     valeur_max = 0
+    niveau_bot : int
+    niveau_bot = 1
 
     if mode_jeu == 0:
         mode_jeu = menu_bot_joueur()
+    if mode_jeu != 1:
+        niveau_bot = menu_niveau_bot()
 
     clear_terminal()
     if mode_jeu == 1: 
@@ -119,13 +158,17 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
 
         if mode_jeu==1:
             nombredevine=saisir_entier_borne(f"{joueur2}, saisissez un nombre : ",1,limite,"Le nombre n'est pas l'intervalle")
-        else:
-            nombredevine=random.randint(valeur_min,valeur_max)
+        elif mode_jeu==2:
+            nombredevine=choix_jeu_bot(niveau_bot,nombrechoisi,reponse,valeur_min,valeur_max,limite)
+        else: 
+            nombredevine=choix_jeu_bot(niveau_bot,nombrechoisi,reponse,valeur_min,valeur_max,limite) or 0
+        
         clear_terminal()
         print(f"{joueur1}, veuillez choisir parmi les choix suivant : ")
         print("1 -- trop petit")
         print("2 -- trop grand")
         print("3 -- c'est gagné")
+
 
         while joueur_ment:
             if mode_jeu==1 or mode_jeu == 2:
