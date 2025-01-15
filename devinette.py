@@ -16,7 +16,7 @@ def choix_jeu_bot(niveau : int, nombrechoisi : int, reponse : int , valeur_min :
         reponse (int) : reponse du joueur
         valeur_min (int) : valeur minimale du nombre choisi par le bot
         valeur_max (int) : valeur maximale du nombre choisi par le bot
-        sortie :
+    sortie :
             int : nombre choisi par le bot
     """
     if valeur_min == 0:
@@ -37,10 +37,11 @@ def choix_jeu_bot(niveau : int, nombrechoisi : int, reponse : int , valeur_min :
                 return random.randint(valeur_min+1,nombrechoisi)
     elif niveau == 3:
         if reponse == 1:
-            return random.randint(nombrechoisi,valeur_max)
+            return random.randint(nombrechoisi,valeur_max-1)
         elif reponse == 2:
-            return random.randint(valeur_min,nombrechoisi)
-
+            return random.randint(valeur_min+1,nombrechoisi)
+    return random.randint(valeur_min, valeur_max)
+    
 def afficher_regles_devinette():
     """
     Fonction qui permet d'afficher les regles du jeu des allumettes
@@ -116,7 +117,7 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
     valeur_min : int
     valeur_min = 0
     valeur_max : int
-    valeur_max = 0
+    niveau_bot : int = 1
     niveau_bot : int
 
 
