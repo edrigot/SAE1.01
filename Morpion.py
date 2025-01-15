@@ -133,12 +133,15 @@ def ajout_symbole_bot(tab : list[list[str]], symbole :str, niveau : int, symbole
 
 def ajout_n3 (tab : list[list[str]], symbole : str, symbole_adv : str) -> list[list[str]]:
     """
-    Fonction qui permet d'ajouter le symbole de l'ordinateur a une case proche d'un de ses symboles deja present sur le plateau de jeu ou a une case pour empecher l'adversaire de gagner la partie.
-    Par exemple si l'adversaire n'a plus qu'un seul symbole a placer pour gagner (horizontalement, verticalement ou en diagonale), la case choisit sera celle qui aurait permis à l'adversaire de gagner.
+    Fonction qui permet d'ajouter le symbole de l'ordinateur a une case proche d'un de ses symboles deja present sur le plateau de jeu ou 
+        a une case pour empecher l'adversaire de gagner la partie.
+    Par exemple si l'adversaire n'a plus qu'un seul symbole a placer pour gagner (horizontalement, verticalement ou en diagonale), 
+        la case choisit sera celle qui aurait permis à l'adversaire de gagner.
     Cette fonction represente le niveau 3 de l'ordinateur
 
-    Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+    Entree :
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable 
+            dans les jeux du morpion et de puissance 4
         symbole (str) : symbole de l'ordinateur
         symbole_adv (str) : symbole de l'adversaire contre qui l'ordinateur joue
     Sortie :

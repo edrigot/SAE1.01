@@ -140,16 +140,19 @@ def ajout_n2_p4(tab : list[list[str]], symbole : str) -> list[list[str]]:
 
 def ajout_n3_p4(tab : list[list[str]], symbole : str, symbole_adv : str) -> list[list[str]]:
     """
-    Fonction qui permet d'ajouter le symbole de l'ordinateur à une colonne proche d'un de ses symboles deja present sur le plateau de jeu ou à une colonne pour empecher l'adversaire de gagner la partie.
-    Par exemple si l'adversaire n'a plus qu'un seul symbole à placer pour gagner (horizontalement, verticalement ou en diagonal), la colonne choisie sera celle qui aurait permis à l'adversaire de gagner.
+    Fonction qui permet d'ajouter le symbole de l'ordinateur à une colonne proche d'un de ses symboles deja present sur le plateau de jeu ou 
+        à une colonne pour empecher l'adversaire de gagner la partie.
+    Par exemple si l'adversaire n'a plus qu'un seul symbole à placer pour gagner (horizontalement, verticalement ou en diagonal), 
+        la colonne choisie sera celle qui aurait permis à l'adversaire de gagner.
     Cette fonction represente le niveau 3 de l'ordinateur
 
-    Entrée :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilisé pendant la partie en cours qui est donc rempli pour etre utilisable dans les jeux du morpion et de puissance 4
+    Entree :
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable 
+            dans les jeux du morpion et de puissance 4
         symbole (str) : symbole de l'ordinateur
         symbole_adv (str) : symbole de l'adversaire contre qui l'ordinateur joue
     Sortie :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajouté
+        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajoute
     """
     cptr : int
     cptr = 0
@@ -387,7 +390,6 @@ def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, S
 
     tab = remplissage_tab(tab,15,6)
     affichage_tab(tab)
-
     while existe_gagnant==False and reste_place(tab):
         
         if mode_jeu == 1 or mode_jeu == 2:
@@ -415,7 +417,7 @@ def puissance4(joueur1 : str, joueur2 : str, symbolej1 : str, symbolej2 : str, S
                 else:
                     perdant = "bot1"
             existe_gagnant = gagnant_p4(tab,symbolej2)
-    
+        
     if reste_place(tab)==False and existe_gagnant==False:
         print("Egalité")
     else:

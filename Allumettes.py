@@ -87,9 +87,11 @@ def Allumettes(joueur1 : str, joueur2 : str, nb_allumettes_depart : int, Scores_
 
 def choix_allumettes_bot(nb_allumettes : int, niveau : int) -> int:
     """
-    Fonction permettant a l'ordinateur de jouer et de choisir un nombre d'allumettes a retirer. Ce choix se fait en fonction du niveau de l'ordinateur.
+    Fonction permettant a l'ordinateur de jouer et de choisir un nombre d'allumettes a retirer. Ce choix se fait en fonction du niveau 
+        de l'ordinateur.
     Chaque niveau d'ordinateur a une stratégie differente pour choisir le nombre d'allumettes a retirer.
-    Le niveau 1 est aleatoire, le niveau 2 est base sur une strategie simple et le niveau 3 est base sur une strategie plus complexe, le niveau 4 est un niveau de difficulte supplementaire.
+    Le niveau 1 est aleatoire, le niveau 2 est base sur une strategie simple et le niveau 3 est base sur une strategie plus complexe, 
+        le niveau 4 est un niveau de difficulte supplementaires.
 
     Entrée :
         nb_allumettes (int) : nombre d'allumettes restant pour la partie en cours

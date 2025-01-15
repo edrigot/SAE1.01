@@ -40,7 +40,6 @@ def choix_jeu_bot(niveau : int, nombrechoisi : int, reponse : int , valeur_min :
             return random.randint(nombrechoisi,valeur_max)
         elif reponse == 2:
             return random.randint(valeur_min,nombrechoisi)
-    return valeur_min  # Default return to ensure an integer is always returned
 
 def afficher_regles_devinette():
     """
