@@ -158,6 +158,10 @@ def ajout_n3_p4(tab : list[list[str]], symbole : str, symbole_adv : str) -> list
     cptr = 0
     ligne : int
     col : int
+    col2 : int
+    ligne2 : int
+    k : int
+    j : int
     for ligne in range(0,6):
         cptr = 0
         for col in range(1,15,2):
