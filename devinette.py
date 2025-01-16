@@ -26,19 +26,27 @@ def choix_jeu_bot(niveau : int, nombrechoisi : int, reponse : int , valeur_min :
     aleatoire : int
     aleatoire = random.randint(1,2)
     if niveau == 1:
-        return random.randint(valeur_min,valeur_max)
+        return random.randint(1,limite)
     elif niveau == 2:
         if aleatoire == 1: 
-            return random.randint(valeur_min, valeur_max)
+            return random.randint(1, limite)
         elif aleatoire == 2:
             if reponse == 1:
+                if valeur_max - nombrechoisi == 1:
+                    return nombrechoisi
                 return random.randint(nombrechoisi,valeur_max-1)
             elif reponse == 2:
+                if nombrechoisi - valeur_min == 1:
+                    return nombrechoisi
                 return random.randint(valeur_min+1,nombrechoisi)
     elif niveau == 3:
         if reponse == 1:
+            if valeur_max - nombrechoisi == 1:
+                return nombrechoisi
             return random.randint(nombrechoisi,valeur_max-1)
         elif reponse == 2:
+            if nombrechoisi - valeur_min == 1:
+                return nombrechoisi
             return random.randint(valeur_min+1,nombrechoisi)
     return random.randint(valeur_min, valeur_max)
     
