@@ -132,13 +132,23 @@ def devinette(nbtour:int,joueur1:str,joueur2:str, Scores_Jeux : list[GestionScor
         nombrechoisi=saisir_entier_borne(f"{joueur1},choisissez le nombre que vous souhaitez faire deviner, entre 1 et {limite}, : ",1,limite,"Le nombre n'est pas l'intervalle")
     elif mode_jeu == 2:
         joueur2="bot2"
-        limite=random.randint(1,50)
+        if niveau_bot == 1:
+            limite=random.randint(1,50)
+        elif niveau_bot == 2:
+            limite=random.randint(1,500)
+        elif niveau_bot == 3:
+            limite=random.randint(1,1000)
         valeur_max = limite
         nombrechoisi=saisir_entier_borne(f"{joueur1},choisissez le nombre que vous souhaitez faire deviner, entre 1 et {limite}, : ",1,limite,"Le nombre n'est pas l'intervalle")
     elif mode_jeu == 3:
         joueur1="bot1"
         joueur2="bot2"
-        limite=random.randint(1,50)
+        if niveau_bot == 1:
+            limite=random.randint(1,50)
+        elif niveau_bot == 2:
+            limite=random.randint(1,500)
+        elif niveau_bot == 3:
+            limite=random.randint(1,1000)
         valeur_max = limite
         nombrechoisi=random.randint(1,limite)
 

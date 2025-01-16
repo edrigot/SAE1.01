@@ -140,19 +140,19 @@ def ajout_n2_p4(tab : list[list[str]], symbole : str) -> list[list[str]]:
 
 def ajout_n3_p4(tab : list[list[str]], symbole : str, symbole_adv : str) -> list[list[str]]:
     """
-    Fonction qui permet d'ajouter le symbole de l'ordinateur à une colonne proche d'un de ses symboles deja present sur le plateau de jeu ou 
+    Fonction qui permet d'ajouter le symbole de l'ordinateur à une colonne proche d'un de ses symboles deja presents sur le plateau de jeu ou 
         à une colonne pour empecher l'adversaire de gagner la partie.
-    Par exemple si l'adversaire n'a plus qu'un seul symbole à placer pour gagner (horizontalement, verticalement ou en diagonal), 
+    Par exemple, si l'adversaire n'a plus qu'un seul symbole à placer pour gagner (horizontalement, verticalement ou en diagonal), 
         la colonne choisie sera celle qui aurait permis à l'adversaire de gagner.
     Cette fonction represente le niveau 3 de l'ordinateur
 
     Entree :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable 
+        tab (list[list[str]]) : Tableau de chaines de caracteres utilise pendant la partie en cours qui est donc rempli pour etre utilisable 
             dans les jeux du morpion et de puissance 4
         symbole (str) : symbole de l'ordinateur
         symbole_adv (str) : symbole de l'adversaire contre qui l'ordinateur joue
     Sortie :
-        tab (list[lsit[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajoute
+        tab (list[list[str]]) : Tableau de chaines de caracteres avec le symbole qui vient d'être ajoute
     """
     cptr : int
     cptr = 0
